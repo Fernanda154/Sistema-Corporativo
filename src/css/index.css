@@ -1,0 +1,63 @@
+body{
+    background-color: #DADFE2;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+form{
+    display: flex;
+    height: 100%;
+    width: 33%;
+    background-color: #14220c;
+    border-radius: 12px;
+}
+input{
+    border: none;
+    width: 65%;
+    background-color: #14220c;
+    border-bottom: 1px solid #FFF;
+    padding-top: 20px;
+    margin-top: 5px;
+    color: blanchedalmond;
+}
+::-webkit-input-placeholder {
+    color: #cccccc;
+}
+a{
+    color: blanchedalmond;
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+h3{
+    color: #DADFE2;
+    font-size: 16px;
+}
+.entrar{
+    padding: 2px;
+    margin: 20px;
+    width: 40%;
+    background-color: #DADFE2;
+    border-radius: 5px;
+    color: #000;
+}
+.conteudo{
+    padding-top: 10%;
+    width: 100%;
+}
+.card-maior{
+    background-color: rgb(143, 188, 24);
+    height: 290px;
+    width: 620px;
+    margin: 25vh auto 0 auto;
+    border-radius: 12px;
+    opacity: 0.73;
+    box-shadow: 6px 6px 35px grey;
+    display: flex;
+}
+.logo_white{
+    display: flex;
+    height: 35%;
+    display: flex;
+    margin-left: 15%;
+    margin-top: 14%;
+}
