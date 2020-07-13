@@ -1,0 +1,148 @@
+.gridBarraMenu{
+	grid-row-start: 1;
+	grid-row-end: 4;
+  	grid-column-start: 1;
+	grid-column-end: 1;
+	background: #343a40;
+	padding-top: 5vh;
+	border-radius: 0px !important;
+	position: fixed;
+	margin-top: 7.9vh;
+	height: 100%;
+	width: 155px;
+
+}
+
+a {
+	color: rgba(255, 255, 255, 0.6);
+	text-decoration: none;
+}
+
+	a:hover, li:hover > a {
+		color: #FFF;
+	}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+
+}
+
+li {
+	margin-top: 10px;
+	padding: 0;
+
+}
+li:hover {
+	background-color: #8fbc18;
+	transition: 0.3s;
+}
+
+li ul {
+	position: absolute;
+	left: 149px;
+	top: ;
+	display: none;
+}
+#menu {
+	font-size: 1.5em;
+	width: 100%;
+	padding-top: 5vh;
+	margin-left: 3px;
+}
+#menu li a {
+	display: block;
+	padding: 0.5em ;
+	white-space: nowrap;
+
+}
+.iconsSubMenu{
+	height: 15px;
+	width: auto;
+	margin-right: 3px;
+	display: inline;
+}
+.iconsMenu{
+	height: 17px;
+	display: inline-block;
+	margin-right: 5px;
+}
+li p{
+	display: inline-block;
+	font-size: 1em;
+	margin-bottom: 4px;
+}
+#menu li:hover ul {
+		display: block;
+
+	}
+
+	.dropEmpresa li  a {
+
+		font-size: 0.7em;
+	}
+		#menu li ul a:hover:before {
+			content: "";
+			display: block;
+			width: auto;
+			height: 1em;
+			background: rgba(0,0,0,0.75);
+			border: 1px solid #FFF;
+			position: absolute;
+			left: -0.75em;
+			-moz-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			opacity: 0; /* Hide sub level */
+			-webkit-transition: opacity .5s ease-in-out;
+			-moz-transition: opacity .5s ease-in-out;
+			-o-transition: opacity .5s ease-in-out;
+			  transform: translateY(0%);
+			  transition-delay: 0s, 0s, 0.3s;
+			z-index:  10000;
+		}
+		#menu li ul {
+			position: absolute;
+			overflow: hidden;
+			display: none;
+			left: 100%;
+			top: 9.5em;
+			float: none;
+			background-color: #000;
+			opacity: 0.5;
+		}
+		#menu .portaisUL {
+			position: absolute;
+			overflow: hidden;
+			display: none;
+			left: 100%;
+			top: 14em;
+			float: none;
+			background-color: #000;
+			opacity: 0.5;
+        }
+        .dropEmpresa{
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            left: 100%;
+            top: 8.5em !important;
+            float: none;
+            background-color: #000;
+            opacity: 0.5;
+            z-index: 10000;
+        }
+        .dropSistemas{
+            top: 8.5em !important;
+        }
+        .dropAdmin{
+            top: 4.5em !important;
+        }
+        li a{
+            font-size: 14px !important;
+            color: #D4C6C6;
+            width: auto;
+            
+        }

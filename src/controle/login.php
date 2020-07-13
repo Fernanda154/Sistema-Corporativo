@@ -9,6 +9,12 @@
     if($result != false){
         $funcionario = mysqli_fetch_assoc($result);
         if($funcionario['login'] == $login and $funcionario['senha'] == $senha){
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $_SESSION['cod_funcionario'] = $funcionario['cod_funcionario'];
+            $_SESSION['nome'] = $funcionario['nome'];
+            header('Location: ../views/painel.php');
             echo "Logou";
         }
     }

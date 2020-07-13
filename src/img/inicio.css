@@ -1,0 +1,224 @@
+*{
+	margin:0px;
+	font: 14px/1.4 roboto;
+
+}
+#conteudo {
+	display: grid;
+	grid-template-columns: 10vw 28vw 23vw 22vw;
+	grid-template-rows: 43vh 35vh 32vh;
+	text-align: left;
+	background-color: #dadfe2;
+	grid-gap: 2em;
+	height: 120vh;
+}
+#conteudo div{
+	border-radius: 5px;
+}
+.gridBanner{
+	grid-row-start: 1;
+    	grid-row-end: 1;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	background-color: #FFF;
+	margin-top: 8vh;
+	margin-left: 4vw;
+}
+.gridReservas{
+	grid-row-start: 1;
+    	grid-row-end: 1;
+	grid-column-start: 4;
+	grid-column-end: 5;
+	background-color: #FFF;
+	margin-top: 8vh;
+	display: inline-block;
+}
+.gridNoticias{
+	grid-row-start: 2;
+    	grid-row-end: 2;
+    	grid-column-start: 4;
+	grid-column-end: 5;
+	background-color: #FFF;
+	padding: 15px;
+	display: inline-block;
+}
+.gridComunicados{
+	grid-row-start: 2;
+    	grid-row-end: 2;
+    	grid-column-start: 2;
+	grid-column-end: 4;
+	background-color: #FFF;
+	margin-left: 4vw;
+	padding: 15px;
+}
+.gridAniversarios{
+	grid-row-start: 3;
+    	grid-row-end: 3;
+    	grid-column-start: 4;
+	grid-column-end: 5;
+	background-color: #FFF;
+	padding: 15px;
+}
+.gridTV{
+	grid-row-start: 3;
+    	grid-row-end: 3;
+    	grid-column-start: 3;
+	grid-column-end: 3;
+	background-color: #FFF;
+	padding: 15px;
+}
+.gridArquivos{
+	grid-row-start: 3;
+    	grid-row-end: 3;
+    	grid-column-start: 2;
+	grid-column-end: 3;
+	background-color: #FFF;
+	margin-left: 4vw;
+	padding: 15px;
+}
+.calendario{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.cabecarioCalendario{
+	text-align: center;
+	background-color: #343a40;
+	color: #FFF;
+	width: 100%;
+	height: 35%;
+	padding-top: 3%;
+	border-radius: 0px 0px 5px 5px;
+}
+.cabecarioCalendario h1{
+	font-weight: bold;
+	font-size: 50px;
+	font: roboto;
+}
+.calendario h2{
+	font-size: 18px;
+	margin: 3px;
+	font: roboto;
+}
+.cabecarioCalendario {
+	font-size: 25px;
+}
+.dias{
+		font-weight: bold;
+}
+.calendario table{
+	width: 90%;
+	height: 45%;
+	margin-top: 0px;
+	margin-left: 5%;
+}
+.calendario table td{
+	width: 1vw !important;
+	font-size: 12px;
+	font: roboto;
+	padding-right: 1% !important;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.calendario table td:hover{
+	background-color: #D3D3D3;
+}
+hr{
+	background-color: #D3D3D3;
+	width: 95%;
+	margin-bottom: 10px;
+}
+
+a{
+	color: #000;
+	text-decoration: none;
+	
+}
+a:hover{
+	color: green;
+}
+hr{
+	margin-bottom: 2.5vh;
+}
+.gridTV hr{
+	margin-bottom: 1vh;
+}
+.links{
+	margin-top: 1vh !important;
+	margin-left: 5vw;
+}
+.iconBaixar{
+	margin-left: 1vw;
+}
+.linksArquivos{
+	margin-top: 0.5vh !important;
+	margin-left: 2vw;
+}
+
+/* CSS REFERENTE AO CARROSEL DO BANNER */
+#carousel-example-generic.carousel.slide{
+	height: 100px !important;
+	display: block;
+	overflow: initial;
+	z-index: 3;
+}
+
+.item img{
+	height: 35vh !important;
+	width: 50vw !important;
+	position: initial;
+	overflow: initial;
+
+}
+#controlLeft{
+	height: 35vh !important;
+	position: relative;
+	top: -18vh;
+	left: 1vw;
+}
+#controlRight{
+	height: 35vh !important;
+	position: relative;
+	top: -18vh;
+	left: 47.5vw;
+}
+a:active {
+  background-color: yellow;
+}
+
+.ui-widget .ui-widget{
+	border:none;
+	height: 100%;
+	width: 100%;
+}
+.ui-datepicker .ui-datepicker-header{
+	height: 15vh;
+	background: none;
+	background-color: #343a40;
+	position: initial !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background: #FFF !important;
+	text-align: center;
+	border: 1px solid #d6d6d6 !important;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+	position: initial !important;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+	position: initial !important;
+	float: right !important;
+	margin-top: -1.5vh !important;
+}
+.ui-datepicker .ui-datepicker-prev span{
+	margin-right: 16.8vw;
+	margin-top: 2.5vh !important;
+}
+.ui-datepicker .ui-datepicker-next span{
+	margin-left: -5vw;
+}
+#carousel-example-generic{
+	position: relative;
+
+}

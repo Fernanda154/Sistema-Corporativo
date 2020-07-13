@@ -1,4 +1,5 @@
 <?php
+    include_once("../../controle/conexao.php");
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
 ?>
@@ -16,6 +17,7 @@
     <script src="../../includes/tapmodo-Jcrop-1902fbc/js/jquery.Jcrop.js"></script>
     <link rel="stylesheet" href="../../includes/tapmodo-Jcrop-1902fbc/css/jquery.Jcrop.css" type="text/css" />
     <link rel="stylesheet" href="../../includes/tapmodo-Jcrop-1902fbc/demos/demo_files/demos.css" type="text/css" />
+    
     <script src="../../js/corta_imagens.js"></script>
 
     <style type="text/css">
@@ -33,7 +35,6 @@
         }
     </style>
 </head>
-
 <body>
     <form action="insercoes.php" method="POST" enctype="multipart/form-data">
         <label for="nome">Nome completo:</label>

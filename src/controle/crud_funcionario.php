@@ -42,7 +42,7 @@
 
         $query = "INSERT INTO `intranet_corporativa`.`funcionario`(`nome`, `telefone`, `email`, `data_nascimento`, `ramal`, `senha`, `login`, `permissao`, `cargo`, `setor`)
                     VALUES('$nome', '$telefone', '$email', '$data_nascimento', '$ramal', '$senha', '$login', '$permissoes', $cargo, $setor);";
-        $result_funcionario = mysqli($poti_con, $query) or die(mysqli_error($poti_con));
+        $result_funcionario = mysqli_query($poti_con, $query) or die(mysqli_error($poti_con));
         
     }
 ?>
