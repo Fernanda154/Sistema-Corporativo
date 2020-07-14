@@ -49,13 +49,7 @@ if($_SESSION['cod_funcionario'] == null){
                 };
                	xhr.send(null);
         </script>
-        <?php
-        	//Se houver comunidados a serem lzidos...
-        	if ($totalRows_rscomunidados_naolidos > 0){
-        		$cod_comunicado = $row_rscomunidados_naolidos['cod_comunicado'];
-        		echo "<meta http-equiv='refresh' content='0;URL=leitura.php?cod_comunicado=$cod_comunicado&cod_usuario=$cod_usuario'/>";
-        	}
-        ?>
+        
 
         <div class="container">
             <div class="gridBanner">

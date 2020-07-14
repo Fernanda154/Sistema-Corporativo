@@ -1,8 +1,8 @@
 
 <?php
 
-
-if (getenv('ENV') == 'PRODUCTION') {
+$env = getenv('ENV');
+if ($env == 'PRODUCTION') {
 	$host="us-cdbr-east-02.cleardb.com";
 	$socket="";
 	$port=3306;
@@ -13,7 +13,7 @@ if (getenv('ENV') == 'PRODUCTION') {
 else {
 	$host="127.0.0.1";
 	$socket="";
-	$port=3306;
+	$port=3300;
 	$user="root";
 	$password="cabeloloco154";
 	$dbname="intranet_corporativa";
