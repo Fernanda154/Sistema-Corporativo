@@ -1,31 +1,18 @@
 <?php
     include('conexao.php');
-    if ($_POST['img'] == 'Cortar'){
-        $targ_w = $targ_h = 150;
-        $jpeg_quality = 90;
     
-        $src = 'demo_files/pool.jpg';
-        $img_r = imagecreatefromjpeg($src);
-        $dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
-    
-        imagecopyresampled($dst_r,$img_r,0,0,$_POST['x'],$_POST['y'],
-        $targ_w,$targ_h,$_POST['w'],$_POST['h']);
-    
-        header('Content-type: image/jpeg');
-        imagejpeg($dst_r,null,$jpeg_quality);
-    }
-    if($_POST['crud_funcionario'] == "Cadastrar"){
-        $nome = $_POST['nome'];
+    if(isset($_POST['inserir'])){
+        $nome = $_POST['nome_funcionario'];
         $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $ramal = $_POST['ramal'];
         $senha = $_POST['senha'];
         $conf_senha = $_POST['conf_senha'];
         $login = $_POST['login'];
-        $foto = $_FILES['foto'];
         $cargo = $_POST['cargo'];
         $setor = $_POST['setor'];
         $data_nascimento = $_POST['data_nascimento'];
+        $foto = $_FILES['foto'];
         $permissoes = "";
         if(isset($_POST['permissao_banner'])){
             $permissoes = $permissoes."1";
@@ -43,6 +30,39 @@
         $query = "INSERT INTO `intranet_corporativa`.`funcionario`(`nome`, `telefone`, `email`, `data_nascimento`, `ramal`, `senha`, `login`, `permissao`, `cargo`, `setor`)
                     VALUES('$nome', '$telefone', '$email', '$data_nascimento', '$ramal', '$senha', '$login', '$permissoes', $cargo, $setor);";
         $result_funcionario = mysqli_query($poti_con, $query) or die(mysqli_error($poti_con));
-        
+        $cod_funcionario = mysqli_insert_id($poti_con);
+        if($cod_funcionario != false){
+            echo "
+                <script>
+                    setTimeout(function(){ alert('Funcionário cadastrado com sucesso!'); }, 3000);
+                </script>
+            ";
+        }
+        if(isset($_FILES["foto"])){
+
+            $foto = $_FILES["foto"];
+            $nome_foto = $foto["name"];
+            if($nome_foto != NULL And $nome_foto != "") {
+                $pasta_dir = "../img/colaboradores/";  //diretorio dos arquivos onde serão salvos os anexos.
+
+                $data ="".date('Y/m/d H:i:s');
+                $data_processada = preg_replace("/[^0-9]+/", "", $data);
+
+                //se nao existir a pasta ele cria uma
+                if(!file_exists($pasta_dir)){
+                    mkdir($pasta_dir);
+                }
+
+                $arquivo_dir = $pasta_dir.$data_processada."_".$nome_foto;
+                // Faz o upload da imagem
+                move_uploaded_file($foto["tmp_name"], $arquivo_dir);
+                $tamanho = $foto["size"];
+                $caminhoArquivo = $arquivo_dir;
+                $nome_foto = $data_processada."_".$nome_foto;
+                $insert_foto = "INSERT INTO foto (nome, tamanho, caminho, funcionario) VALUES ('$nome_foto', $tamanho,'$caminhoArquivo', $cod_funcionario)";
+                $result_foto = mysqli_query($poti_con, $insert_foto) or die(mysqli_error($poti_con));
+            }
+        }
+        header("Location: ../views/acesso_administrativo/funcionarios.php");
     }
 ?>

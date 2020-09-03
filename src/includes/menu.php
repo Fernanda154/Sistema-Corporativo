@@ -68,7 +68,7 @@
 		</li>
 <!-- VISÍSIVEL SOMENTE POR ADMINS -->
 		<?php
-			if ($funcionario['permissao'] == 99){
+			if ($funcionario['permissao'] == '99'){
 		?>
 					<li><a href="http://localhost/poticorp/Sistema-Corporativo/src/views/acesso_administrativo/controles.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/admin.png" class="iconsMenu"><p>ADMINISTRAÇÃO</p></a>
 						

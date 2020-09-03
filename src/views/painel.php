@@ -2,9 +2,9 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-if($_SESSION['cod_funcionario'] == null){
-	header("Location: ../controle/logout.php");
-}
+//if($_SESSION['cod_funcionario'] == null){
+	//header("Location: ../controle/logout.php");
+//}
   include('../controle/conexao.php');
   require_once('../controle/preenchimentos/reservas.php');
   require_once('../controle/preenchimentos/publicacoes.php');

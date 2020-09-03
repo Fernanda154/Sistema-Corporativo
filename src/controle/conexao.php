@@ -13,7 +13,7 @@ if ($env == 'PRODUCTION') {
 else {
 	$host="127.0.0.1";
 	$socket="";
-	$port=3300;
+	$port=3306;
 	$user="root";
 	$password="cabeloloco154";
 	$dbname="intranet_corporativa";

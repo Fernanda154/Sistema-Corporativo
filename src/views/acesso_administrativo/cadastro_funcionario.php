@@ -1,5 +1,7 @@
 <?php
     include_once("../../controle/conexao.php");
+    include('../../includes/nav.php');
+    include('../../includes/menu.php');
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
 ?>
@@ -11,113 +13,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potigás</title>
 
-    <!-- Importações para o plugin de corte de imagem-->
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://deepliquid.com/Jcrop/js/jquery.Jcrop.min.js"></script>
-    <script src="../../includes/tapmodo-Jcrop-1902fbc/js/jquery.Jcrop.js"></script>
-    <link rel="stylesheet" href="../../includes/tapmodo-Jcrop-1902fbc/css/jquery.Jcrop.css" type="text/css" />
-    <link rel="stylesheet" href="../../includes/tapmodo-Jcrop-1902fbc/demos/demo_files/demos.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/cadastro_funcionario.css">
     
-    <script src="../../js/corta_imagens.js"></script>
-
-    <style type="text/css">
-        body{
-        margin:0 auto;
-        padding:10px;
-        }
-        h1{
-        font-size:20px;
-        font-family:Arial;
-        color:#666666;
-        }
-        input{
-        margin-bottom:7px;
-        }
-    </style>
 </head>
 <body>
-    <form action="insercoes.php" method="POST" enctype="multipart/form-data">
-        <label for="nome">Nome completo:</label>
-        <input type="text" name="nome_funcionario" id="nome_funcionario" placeholder="Nome completo">
+    <div class="container">
+        <form action="../../controle/crud_funcionario.php" class="form_cadastro" method="POST" enctype="multipart/form-data">
+            <h4>CADASTRO DE FUNCIONÁRIO</h4>
+            <div class="row">
+                <div class="col-sm-8">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome_funcionario" id="nome_funcionario" class="form-control" placeholder="Nome completo">
+                    
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(DDD)X XXXX-XXXX">
+                </div>
+                <div class="col-sm-4">
+                    <div class="coluna_foto">
+                         <!--PRÉVIA DA IMAGEM COM JQUERY-->
+                        <script>
+                            function previaImagem(){
+                                var imagem = document.querySelector('input[name = foto]').files[0];
+                                var previa = document.querySelector('.foto_funcionario');
+                                var reader = new FileReader();
+                                reader.onloadend = function () {
+                                    previa.src = reader.result;
+                                }                       
+                                if(imagem){
+                                    reader.readAsDataURL(imagem);
+                                }else{
+                                    previa.src = "";
+                                }
+                            }
+                        </script>
+                        <img class='foto_funcionario' src='http://localhost/poticorp/Sistema-Corporativo/src/img/blank-profile-picture-973460_1280.png' alt='Ilustração para opção de editar'>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="data_nascimento">Data de nascimento:</label>
+                    <input type="date" id="data_nascimento" class="form-control" name="data_nascimento">
+                </div>
+                <div class="col">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="nome.sobrenome@potigas.com.br">
+                
+                </div>
+                <div class="w-100"></div>
+                    <div class="col"> 
+                        <label for="ramal">Ramal:</label>
+                        <input type="ramal" name="ramal" id="ramal" class="form-control" placeholder="XXXX">
+                    </div>
+                <div class="col">
+                    <label for="login">Login:</label>
+                    <input type="text" name="login" class="form-control" id="login">
+                </div>
+                <div class="w-100"></div>
+                    <div class="col"> 
+                        <label for="senha">Senha:</label>
+                        <input type="password" name="senha" class="form-control" id="senha">
+                    </div>
+                <div class="col">
+                    <label for="conf_senha">Confirme a senha:</label>
+                    <input type="password" name="conf_senha" class="form-control" id="conf_senha">
+                </div>
+                <div class="w-100"></div>
+                    <div class="col"> 
+                        <label for="cargo">Selecione o cargo que o funcionário irá ocupar:</label>
+                        <select name="cargo" class="form-control" id="cargo">
+                            <option value="0">Selecione o cargo</option>
+                            <?php
+                            while ($array_cargos = mysqli_fetch_assoc($result_cargos)) {
+                                echo "<option value='".$array_cargos['cod_cargo']."'>".utf8_encode($array_cargos['nomenclatura'])."</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                <div class="col">
+                    <label for="setor">Selecione o setor onde o funcionário irá trabalhar:</label>
+                    <select name="setor" class="form-control" id="setor">
+                        <option value="0">Selecione o setor</option>
+                        <?php
+                        while ($array_setores = mysqli_fetch_assoc($result_setores)) {
+                            echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="w-100"></div>
+                    <div class="col"> 
+                        <label for="customFile">Selecione uma foto:</label>
+                        <div class="custom-file">
+                            <input type="file" name="foto" class="custom-file-input" onChange="previaImagem()" id="customFile">
+                            <label class="custom-file-label" for="customFile">Selecionar foto</label>
+                        </div>
+                    </div>
+                <div class="col">
+                    <fieldset>
+                        <legend>Permissões do usuário</legend>
+                        <label for="banner">Poderá publicar banners?</label>
+                        <input type="checkbox" name="permissao_banner" id="banner" value="1">
 
-        <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" placeholder="(DDD)X XXXX-XXXX">
+                        <label for="documento">Poderá publicar documentos?</label>
+                        <input type="checkbox" name="permissao_documento" id="documento" value="2">
+                        
+                        <label for="publicacao">Poderá inserir comunicados?</label>
+                        <input type="checkbox" name="permissao_publicacao" id="publicacao" value="3">
 
-        <label for="data_nascimento">Data de nascimento:</label>
-        <input type="date" id="data_nascimento" name="data_nascimento">
-
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="nome.sobrenome@potigas.com.br">
-
-        <label for="ramal">Ramal:</label>
-        <input type="ramal" name="ramal" id="ramal" placeholder="XXXX">
-
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha">
-
-        <label for="conf_senha">Confirme a senha:</label>
-        <input type="password" name="conf_senha" id="conf_senha">
-
-        <label for="login">Login:</label>
-        <input type="text" name="login" id="login">
-
-        <label for="foto">Insira uma foto do funcionário:</label>
-        <input type="file" name="foto" id="foto">
-
-
-        <label for="cargo">Selecione o cargo que o funcionário irá ocupar:</label>
-        <select name="cargo" id="cargo">
-            <option value="0">Selecione o cargo</option>
-            <?php
-              while ($array_cargos = mysqli_fetch_assoc($result_cargos)) {
-                  echo "<option value='".$array_cargos['cod_cargo']."'>".utf8_encode($array_cargos['nomenclatura'])."</option>";
-              }
-            ?>
-        </select>
-
-        <label for="setor">Selecione o setor onde o funcionário irá trabalhar:</label>
-        <select name="setor" id="setor">
-            <option value="0">Selecione o setor</option>
-            <?php
-              while ($array_setores = mysqli_fetch_assoc($result_setores)) {
-                  echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
-              }
-            ?>
-        </select>
-
-        <fieldset>
-            <legend>Permissões do usuário</legend>
-            <label for="banner">Poderá publicar banners?</label>
-            <input type="checkbox" name="permissao_banner" id="banner" value="1">
-
-            <label for="documento">Poderá publicar documentos?</label>
-            <input type="checkbox" name="permissao_documento" id="documento" value="2">
-
-            <label for="publicacao">Poderá inserir comunicados?</label>
-            <input type="checkbox" name="permissao_publicacao" id="publicacao" value="3">
-
-            <label for="reserva">Poderá avaliar reservas?</label>
-            <input type="checkbox" name="permissao_reserva" value="4">
-        </fieldset>
-
-        <input type="submit" name="crud_funcionario" value="Cadastrar">
-    </form>
-
-    <div class="article">
-        <h1>Crop jQuery</h1>
-        <!-- Imagem que vamos inserir -->
-       <!-- <img src="../../includes/tapmodo-Jcrop-1902fbc/demos/demo_files/pool.jpg" id="cropbox" />-->
- 
-        <form>
-            <input type="hidden" id="x" name="x" />
-            <input type="hidden" id="y" name="y" />
-            <input type="hidden" id="w" name="w" />
-            <input type="hidden" id="h" name="h" />
-            <input type="file" id="arquivo" />
-            <input onclick="submitForm();" type="button" id="sendButton" value="Enviar" />
-        </form>
-        <output id="result"></output>
+                        <label for="reserva">Poderá avaliar reservas?</label>
+                        <input type="checkbox" name="permissao_reserva" value="4">
+                    </fieldset>
+                </div>
+            </div>
+            <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
+            <button type="button" class="btn btn-danger">Cancelar</button>
+                
+            </form>
     </div>
+
 </body>
 
 </html>

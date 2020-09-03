@@ -24,7 +24,7 @@
             <form method="POST" id="form-pesquisa" action="">
                 <input type="search" class="busca" id="busca" name="busca" alt="table table-striped" placeholder="Buscar">
             </form>
-            <div class="add_user">
+            <div class="add_user" onclick="window.location='cadastro_funcionario.php';">
                 <img src="../../img/icons8-adicionar-usuário-masculino-52.png" class="iconAddUser" alt="Ilustração para adição de novo usuário">
                 <p>Adicionar usuário</p>
             </div>
@@ -43,7 +43,7 @@
                         while ($array_funcionarios = mysqli_fetch_assoc($result_table)) {
                             echo "<tr>
                                     <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_funcionarios['cod_funcionario']."></th>
-                                    <td>". utf8_encode($array_funcionarios['nome'])."</td>
+                                    <td>". $array_funcionarios['nome']."</td>
                                     <td>". utf8_encode ($array_funcionarios['setor']) ."</td>
                                     <td>".$array_funcionarios['login']."</td>
                                     <td> 

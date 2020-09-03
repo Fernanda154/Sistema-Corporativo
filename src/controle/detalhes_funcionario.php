@@ -16,7 +16,7 @@
 
     $lista_inicio = $limite_dados * $pagina_atual;
     //Pesquisar no banco de dados nome do usuario referente a palavra digitada
-    $result_user = "SELECT funcionario.nome, funcionario.telefone, funcionario.email, funcionario.ramal, funcionario.data_nascimento, funcionario.cod_funcionario, funcionario.login, setor.nome as setor, cargo.nomenclatura, foto.caminho FROM funcionario INNER JOIN Setor ON funcionario.setor = Setor.cod_setor INNER JOIN Cargo ON funcionario.cargo = Cargo.cod_cargo LEFT JOIN Foto ON funcionario.foto = Foto.cod_foto WHERE cod_funcionario=$cod_funcionario LIMIT $lista_inicio, $limite_dados;";
+    $result_user = "SELECT funcionario.nome, funcionario.telefone, funcionario.email, funcionario.ramal, funcionario.data_nascimento, funcionario.cod_funcionario, funcionario.login, setor.nome as setor, cargo.nomenclatura, foto.caminho, foto.nome as nomeFoto FROM funcionario INNER JOIN Setor ON funcionario.setor = Setor.cod_setor INNER JOIN Cargo ON funcionario.cargo = Cargo.cod_cargo LEFT JOIN Foto ON funcionario.cod_funcionario = Foto.funcionario WHERE cod_funcionario=$cod_funcionario LIMIT $lista_inicio, $limite_dados;";
     $resultado_user = mysqli_query($poti_con, $result_user);
    
     if(($resultado_user) AND ($resultado_user->num_rows != 0 )){
@@ -25,18 +25,18 @@
                 <div class='foto_modal'>";
                 if($row_user['caminho'] != null){
                     $perfil .= " 
-                        <img class='foto_funcionario' src=".$row_user['caminho']." alt='Ilustração para opção de editar'>";
+                        <img class='foto_funcionario' src=../../img/colaboradores/".$row_user['nomeFoto']." alt='Ilustração para opção de editar'>";
                 }
                 else{
                     $perfil .= " 
-                    <img class='foto_funcionario' src='http://localhost/poticorp/Sistema-Corporativo/src/img/blank-profile-picture-973460_1280.png' alt='Ilustração para opção de editar'>";
+                    <img class='foto_funcionario' src='../../img/blank-profile-picture-973460_1280.png' alt='Ilustração para opção de editar'>";
                 }
                 $perfil .="
                 </div>
                 <div class='dados_modal'>
-                    <h4>".utf8_encode ($row_user['nome'])."</h4>
-                    <p><b>Setor:</b> ".utf8_encode ($row_user['setor'])."</p>
-                    <p><b>Cargo:</b> ".utf8_encode ($row_user['nomenclatura'])."</p>
+                    <h4>".$row_user['nome']."</h4>
+                    <p><b>Setor:</b> ".$row_user['setor']."</p>
+                    <p><b>Cargo:</b> ".$row_user['nomenclatura']."</p>
                     <p><b>Ramal:</b> ".$row_user['ramal']."</p>
                     <p><b>Email:</b> ".$row_user['email']."</p>
                     <p><b>Telefone:</b> ".$row_user['telefone']."</p>
