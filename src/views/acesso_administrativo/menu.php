@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <div class="gridBarraMenu">
 	<meta charset="utf-8">
-	<a href="http://localhost/poticorp/Sistema-Corporativo/src/views/painel.php">
-		<img src="http://localhost/poticorp/Sistema-Corporativo/src/img/logo_poti_white.png" class="logoNav">
+	<a href="../painel.php">
+		<img src="../../img/logo_poti_white.png" class="logoNav">
 	</a>
 	<ul id="menu">
 		<li>

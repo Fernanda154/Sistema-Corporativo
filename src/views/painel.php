@@ -31,7 +31,7 @@ if (!isset($_SESSION)) {
         <header>
             <?php
                 include "../includes/nav.php";
-                include "../includes/menu.php";
+                include "menu.php";
             ?>
         </header>
     	<!-- Carrega notícias do site oficial -->

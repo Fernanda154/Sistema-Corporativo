@@ -14,7 +14,7 @@
     <?php
         require_once('../../controle/conexao.php');
         include('../../includes/nav.php');
-        include('../../includes/menu.php');
+        include('menu.php');
     ?>
     <div class="container" scroll="no">
         <div class="card-group">

@@ -1,7 +1,7 @@
 <?php
     include_once("../../controle/conexao.php");
     include('../../includes/nav.php');
-    include('../../includes/menu.php');
+    include('menu.php');
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
 ?>

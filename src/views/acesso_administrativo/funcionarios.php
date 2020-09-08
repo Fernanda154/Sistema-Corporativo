@@ -16,7 +16,7 @@
     <?php
         require_once('../../controle/conexao.php');
         include('../../includes/nav.php');
-        include('../../includes/menu.php');
+        include('menu.php');
         include('../../controle/preenchimentos/funcionarios.php');
     ?>
     <div class="container">
