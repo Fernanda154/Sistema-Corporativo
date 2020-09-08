@@ -19,6 +19,12 @@
     grid-column-end: 2;
     display: inline-block;
 }
+.logoNav{
+	height: 65px;
+	width: auto;
+	margin-left: 10px;
+	display: inline-block;
+}
 .card{
     display: inline-block;
     box-shadow: 1px 1px 8px #d3c2c2;

@@ -19,13 +19,13 @@
 	</a>
 	<ul id="menu">
 		<li>
-			<a href="../../painel.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
+			<a href="../../painel.php"><img src="../../img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
 		</li>
 		<li>
 			<a href="apresentacao.php"><img src="../../img/apresentacao.png" class="iconsMenu"><p>QUEM SOMOS</p></a>
 		</li>
 		<li>
-			<a href="../comunicados_internos_recebidos.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/cip.png" class="iconsMenu"><p>CIP</p></a>
+			<a href="../comunicados_internos_recebidos.php"><img src="../../img/cip.png" class="iconsMenu"><p>CIP</p></a>
 		</li>
 		<li>
 			<a href="#"><img src="../../img/empresa.png" class="iconsMenu" id="dropEmpresa"><p>EMPRESA</p></a>
