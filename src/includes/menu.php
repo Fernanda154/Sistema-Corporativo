@@ -4,7 +4,7 @@
 	}
 	
 	$cod_funcionario = $_SESSION['cod_funcionario'];
-	$busca_funcionario = "SELECT * FROM intranet_corporativa.funcionario WHERE cod_funcionario = $cod_funcionario;";
+	$busca_funcionario = "SELECT * FROM funcionario WHERE cod_funcionario = $cod_funcionario;";
 	$result_funcionario = mysqli_query($poti_con, $busca_funcionario) or die(mysqli_error($poti_con));
 	$funcionario = mysqli_fetch_assoc($result_funcionario);
 
