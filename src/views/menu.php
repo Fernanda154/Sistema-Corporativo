@@ -19,64 +19,64 @@
 	</a>
 	<ul id="menu">
 		<li>
-			<a href="http://localhost/poticorp/Sistema-Corporativo/src/views/painel.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
+			<a href="painel.php"><img src="../img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
 		</li>
 		<li>
-			<a href="apresentacao.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/apresentacao.png" class="iconsMenu"><p>QUEM SOMOS</p></a>
+			<a href="apresentacao.php"><img src="../img/apresentacao.png" class="iconsMenu"><p>QUEM SOMOS</p></a>
 		</li>
 		<li>
-			<a href="http://localhost/intranet/principal/comunicados_internos_recebidos.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/cip.png" class="iconsMenu"><p>CIP</p></a>
+			<a href="comunicados_internos_recebidos.php"><img src="../img/cip.png" class="iconsMenu"><p>CIP</p></a>
 		</li>
 		<li>
-			<a href="#"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/empresa.png" class="iconsMenu" id="dropEmpresa"><p>EMPRESA</p></a>
+			<a href="#"><img src="../img/empresa.png" class="iconsMenu" id="dropEmpresa"><p>EMPRESA</p></a>
 			<ul class="dropEmpresa">
 				<li>
-					<a href="setores.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>SETORES</p></a>
+					<a href="setores.php"><img src="../img/setores.png" class="iconsSubMenu"><p>SETORES</p></a>
 				</li>
 				<li>
-					<a href="http://localhost/intranet/principal/administracao.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/administracao.png" class="iconsSubMenu"><p>ADMINISTRAÇÃO</p></a>
+					<a href="administracao.php"><img src="../img/administracao.png" class="iconsSubMenu"><p>ADMINISTRAÇÃO</p></a>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href="#"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/sistemas.png" class="iconsMenu"><p>SISTEMAS</p></a>
+			<a href="#"><img src="../img/sistemas.png" class="iconsMenu"><p>SISTEMAS</p></a>
 			<ul class="dropSistemas">
 				<li>
-					<a href="https://intranet/helpdesk"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>HELPDESK</p></a>
+					<a href="https://intranet/helpdesk"><img src="../img/setores.png" class="iconsSubMenu"><p>HELPDESK</p></a>
 				</li>
 				<li>
-					<a href="https://intranet/sagsup"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>SAGSUP</p></a>
+					<a href="https://intranet/sagsup"><img src="../img/setores.png" class="iconsSubMenu"><p>SAGSUP</p></a>
 				</li>
 				<li>
-					<a href=".php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>REGISTRO 117</p></a>
+					<a href=".php"><img src="../img/setores.png" class="iconsSubMenu"><p>REGISTRO 117</p></a>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href="#"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/globo.png" class="iconsMenu"><p>PORTAIS</p></a>
+			<a href="#"><img src="../img/globo.png" class="iconsMenu"><p>PORTAIS</p></a>
 			<ul class="portaisUL">
 				<li>
-					<a href="http://portalsms.potigas.com.br/"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>SMS</p></a>
+					<a href="http://portalsms.potigas.com.br/"><img src="../img/setores.png" class="iconsSubMenu"><p>SMS</p></a>
 				</li>
 				<li>
-					<a href="https://potigas.macroerp.com.br/index.php?class=LoginForm"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/setores.png" class="iconsSubMenu"><p>Portal RH</p></a>
+					<a href="https://potigas.macroerp.com.br/index.php?class=LoginForm"><img src="../img/setores.png" class="iconsSubMenu"><p>Portal RH</p></a>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href="comunicacao.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/comunicacao.png" class="iconsMenu"><p>COMUNICAÇÃO</p></a>
+			<a href="comunicacao.php"><img src="../img/comunicacao.png" class="iconsMenu"><p>COMUNICAÇÃO</p></a>
 		</li>
 <!-- VISÍSIVEL SOMENTE POR ADMINS -->
 		<?php
 			if ($funcionario['permissao'] == '99'){
 		?>
-					<li><a href="http://localhost/poticorp/Sistema-Corporativo/src/views/acesso_administrativo/controles.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/admin.png" class="iconsMenu"><p>ADMINISTRAÇÃO</p></a>
+					<li><a href="acesso_administrativo/controles.php"><img src="../img/admin.png" class="iconsMenu"><p>ADMINISTRAÇÃO</p></a>
 						
 					</li>
 			<?php
 			}
 			?>
-					<li><a href="../controle/logout.php"><img src="http://localhost/poticorp/Sistema-Corporativo/src/img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
+					<li><a href="../controle/logout.php"><img src="../img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
 
 				</ul>
 	</div>
