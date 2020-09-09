@@ -1,6 +1,6 @@
 <?php
     //Incluir a conexão com banco de dados
-    include_once ('C:\xampp\htdocs\poticorp\Sistema-Corporativo\src\controle\conexao.php');
+    include_once ('conexao.php');
 
     $cod_funcionario = filter_input(INPUT_POST, 'cod_funcionario', FILTER_SANITIZE_STRING);
     //Limite de dados a serem exibidos

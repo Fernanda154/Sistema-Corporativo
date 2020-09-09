@@ -8,7 +8,7 @@ $(function () {
             var dados = {
                 palavra: pesquisa
             }
-            $.post('http://localhost/poticorp/Sistema-Corporativo/src/controle/buscaFuncionarios.php', dados, function (retorna) {
+            $.post('../controle/buscaFuncionarios.php', dados, function (retorna) {
                 //Mostra dentro da ul os resultado obtidos 
                 $(".resultado").html(retorna);
             });
