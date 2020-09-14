@@ -14,8 +14,9 @@ $(function () {
             var dados = {
                 cod_funcionario: cod_funcionario
             }
-            $.post('../controle/detalhes_funcionario.php', dados, function (retorna) {
-                //Mostra dentro da ul os resultado obtidos 
+            $.post('../../controle/detalhes_funcionario.php', dados, function (retorna) {
+                //Mostra dentro da ul os resultado obtidos
+                //http://localhost/poticorp/Sistema-Corporativo/src/controle/detalhes_funcionario.php 
                 $(".modal-body").html(retorna);
             });
         }
