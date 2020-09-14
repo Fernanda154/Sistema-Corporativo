@@ -24,6 +24,7 @@
     
 </head>
 <body>
+    
     <div class="container">
         <form action="../../controle/crud_funcionario.php" class="form_cadastro" method="POST" enctype="multipart/form-data">
             <h4>CADASTRO DE FUNCIONÁRIO</h4>
