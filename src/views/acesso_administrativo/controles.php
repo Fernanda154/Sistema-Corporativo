@@ -24,7 +24,7 @@
                     <p class="card-title">Funcionários</p>
                 </div>
             </div>
-            <div class="card" onclick="window.location='cadastro_publicacao.php';">
+            <div class="card" onclick="window.location='comunicados.php';">
                 <img class="icons_controle" src="../../img/icons8-megafone-52.png" alt="Ilustração para opção de comunicados">
                 <div class="card-body">
                     <p class="card-title">Comunicados</p>

@@ -17,39 +17,38 @@
         require_once('../../controle/conexao.php');
         include('../../includes/nav.php');
         include('menu.php');
-        include('../../controle/preenchimentos/funcionarios.php');
+        include('../../controle/preenchimentos/comunicados.php');
     ?>
     <div class="container">
         <div class="box_table" id="box_table">
             <form method="POST" id="form-pesquisa" action="">
                 <input type="search" class="busca" id="busca" name="busca" alt="table table-striped" placeholder="Buscar">
             </form>
-            <div class="add_user" onclick="window.location='cadastro_funcionario.php';">
-                <img src="../../img/icons8-adicionar-usuário-masculino-52.png" class="iconAddUser" alt="Ilustração para adição de novo usuário">
-                <p>Adicionar usuário</p>
+            <div class="add_user" onclick="window.location='cadastro_publicacao.php';">
+                <img src="../../img/add-comunicado.png" class="iconAddUser" alt="Ilustração para adição de novo usuário">
+                <p>Adicionar comunicado</p>
             </div>
             <table class="table table-striped" id="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col"></th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Setor</th>
-                    <th scope="col">Login</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Data</th>
                     <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody class="resultado">
                     <?php
-                        while ($array_funcionarios = mysqli_fetch_assoc($result_table)) {
+                        while ($array_comunicados = mysqli_fetch_assoc($result_table)) {
                             echo "<tr>
-                                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_funcionarios['cod_funcionario']."></th>
-                                    <td>". $array_funcionarios['nome']."</td>
-                                    <td>". utf8_encode ($array_funcionarios['setor']) ."</td>
-                                    <td>".$array_funcionarios['login']."</td>
+                                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_comunicados['cod_publicacao']."></th>
+                                    <td>". $array_comunicados['titulo']."</td>
+                                    <td>". utf8_encode ($array_comunicados['autor']) ."</td>
                                     <td> 
                                         <form method='POST' action=''>
-                                            <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_funcionarios['cod_funcionario'].">
-                                            <img class='icons_opcoes detalhes' data-funcionario=".$array_funcionarios['cod_funcionario']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
+                                            <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_comunicados['cod_publicacao'].">
+                                            <img class='icons_opcoes detalhes' data-funcionario=".$array_comunicados['cod_publicacao']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
                                         </form>
                                         <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
                                 </tr>
@@ -101,7 +100,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../js/buscaFuncionarios.js"></script>
+	<script type="text/javascript" src="../../js/buscaComunicados.js"></script>
     <script type="text/javascript" src="../../js/buscaDetalhes.js"></script>
 </body>
 </html>
