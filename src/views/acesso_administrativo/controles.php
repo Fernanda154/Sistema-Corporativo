@@ -30,7 +30,7 @@
                     <p class="card-title">Comunicados</p>
                 </div>
             </div>
-            <div class="card" onclick="window.location='cadastro_.php';">
+            <div class="card" onclick="window.location='reservas.php';">
                 <img class="icons_controle" src="../../img/icons8-hora-extra-52.png" alt="Ilustração para opção de reservas">
                 <div class="card-body">
                     <p class="card-title">Reservas</p>

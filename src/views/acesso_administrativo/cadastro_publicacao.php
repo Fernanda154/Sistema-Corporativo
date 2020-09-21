@@ -2,6 +2,11 @@
         include_once("../../controle/conexao.php");
         include('../../includes/nav.php');
         include('menu.php');
+
+        $query_funcionario = "SELECT cod_funcionario, nome FROM funcionario;";
+        $result_funcionario = mysqli_query($poti_con, $query_funcionario) or die(mysqli_error($poti_con));
+        $total_de_funcionarios = mysqli_num_rows($result_funcionario);
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,21 +28,38 @@
 </head>
 <body>
     <div class="container">
-        <form action="crud_publicacao.php" method="POST" action="../../controle/cadastra_publicacao.php">
+        <form method="POST" action="../../controle/crud_publicacao.php">
             <h4>CADASTRO DE COMUNICADO</h4>
             <label for="titulo">Título: </label>
             <input type="text" class="form-control" name="titulo" id="titulo">
             <br>
+            <label for="autor">Autor: </label>
+            <select name="autor" class="form-control"  id="autor">
+                <option value="0">Selecione:</option>
+                <?php
+                    while ($array_funcionarios = mysqli_fetch_assoc($result_funcionario)) {
+                        echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";
+                    }
+                ?>
+            </select>
+            <br>
+            <label for="status">Status:</label>
+            <select name="status" id="status" class="form-control">
+                <option value="0">Selecione:</option>
+                <option value="1">Ativo</option>
+                <option value="2">Desativo</option>
+            </select>
+            <br>
             <label for="comentario" >Comentário:</label>
-            <textarea id="comentario" class="form-control"></textarea>
+            <textarea id="comentario" name="comentario" class="form-control"></textarea>
             <br>
             <!--
             <label for="texto">Texto:</label>
             <textarea id="texto" class="form-control"></textarea>
             <br>-->
-            <div id="editor">
+            <textarea id="editor" name="texto">
                 <p>Conteúdo</p>
-            </div>
+            </textarea>
             <script>
                 ClassicEditor
                     .create( document.querySelector( '#editor' ) )

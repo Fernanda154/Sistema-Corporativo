@@ -16,15 +16,16 @@ include_once ('conexao.php');
 
     $lista_inicio = $limite_dados * $pagina_atual;
     //Pesquisar no banco de dados nome do usuario referente a palavra digitada
-    $result_comunicado = "SELECT publicacao.titulo, publicacao.data_publicacao, publicacao.autor WHERE publicacao.titulo LIKE '%$palavra%' OR publicacao.cod_publicacao LIKE '%$palavra%' OR publicacao.data_publicacao LIKE '%$palavra%' OR publicacao.comentario OR publicacao.status LIKE '%$palavra%' OR publicacao.autor LIKE '%$palavra%' OR publicacao.responsavel LIKE '%$palavra%' LIMIT $lista_inicio, $limite_dados;";
-    $resultado_comunicado = mysqli_query($poti_con, $result_comunicado);
-    if(($resultado_comunicado) AND ($resultado_comunicado->num_rows != 0 )){
-        while($row_comunicado = mysqli_fetch_assoc($resultado_comunicado)){
+    $result_reserva = "SELECT reserva.assunto, reserva.data_inicio, reserva.status, reserva.solicitante FROM reserva INNER JOIN funcionario ON reserva.solicitante = funcionario.cod_funcionario WHERE reserva.assunto LIKE '%$palavra%' OR reserva.data_inicio LIKE '%$palavra%' OR reserva.solicitante LIKE '%$palavra%' OR reserva.status LIKE %$palavra%  LIMIT $lista_inicio, $limite_dados;";
+    $resultado_reserva = mysqli_query($poti_con, $result_reserva);
+    if(($resultado_reserva) AND ($resultado_reserva->num_rows != 0 )){
+        while($row_reserva = mysqli_fetch_assoc($resultado_reserva)){
             echo "<tr>
-                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$row_comunicado['cod_publicacao']."></th>
-                    <td>". utf8_encode($row_comunicado['titulo'])."</td>
-                    <td>". utf8_encode ($row_comunicado['autor']) ."</td>
-                    <td>".$row_comunicado['data_publicacao']."</td>
+                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$row_reserva['cod_reserva']."></th>
+                    <td>". $row_reserva['assunto'] ."</td>
+                    <td>". $row_reserva['data_inicio'] ."</td>
+                    <td>". $row_reserva['solicitante']."</td>
+                    <td>". $row_reserva['status']."</td>
                     <td> <img class='icons_opcoes' src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'> <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
                 </tr>
                 ";

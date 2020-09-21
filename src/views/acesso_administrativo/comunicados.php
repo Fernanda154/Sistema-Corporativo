@@ -45,10 +45,11 @@
                                     <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_comunicados['cod_publicacao']."></th>
                                     <td>". $array_comunicados['titulo']."</td>
                                     <td>". utf8_encode ($array_comunicados['autor']) ."</td>
+                                    <td>". date('d/m/Y h:m:s', strtotime($array_comunicados['data_publicacao']))."</td>
                                     <td> 
                                         <form method='POST' action=''>
-                                            <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_comunicados['cod_publicacao'].">
-                                            <img class='icons_opcoes detalhes' data-funcionario=".$array_comunicados['cod_publicacao']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
+                                            <input type='hidden' name='cod_publicacao' value=".$array_comunicados['cod_publicacao'].">
+                                            <img class='icons_opcoes detalhes' data-comunicado=".$array_comunicados['cod_publicacao']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
                                         </form>
                                         <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
                                 </tr>
@@ -61,16 +62,16 @@
             <nav aria-label="Navegação de página exemplo">
                 <ul class="pagination justify-content-end">
                     <li class="page-item <?php echo $pagina_atual == 0 ? 'disabled': ''?>">
-                        <a class="page-link" href="funcionarios.php" tabindex="-1"><<</a>
+                        <a class="page-link" href="comunicados.php" tabindex="-1"><<</a>
                     </li>
                     <?php
                         for($i=0;$i<$numero_de_paginas;$i++){
                             $estilo = "class=\"active\"";
                     ?>
-                    <li <?php echo $estilo; ?>><a class="page-link" href="funcionarios.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
+                    <li <?php echo $estilo; ?>><a class="page-link" href="comunicados.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
                     <li class="page-item">
                         <?php } ?>
-                    <a class="page-link" href="funcionarios.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
+                    <a class="page-link" href="comunicados.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
                     </li>
                 </ul>
             </nav>
@@ -101,6 +102,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/buscaComunicados.js"></script>
-    <script type="text/javascript" src="../../js/buscaDetalhes.js"></script>
+    <script type="text/javascript" src="../../js/buscaDetalhesComunicado.js"></script>
 </body>
 </html>
