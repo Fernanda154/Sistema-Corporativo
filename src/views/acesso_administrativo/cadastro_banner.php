@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- IMPORTAÇÃO DO PLUGIN DE CORTE -->
+    <link href="../../includes/jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
+    <script src="../../includes/jcrop/js/jquery.min.js"></script>
+    <script src="../../includes/jcrop/js/jquery.Jcrop.js"></script>
+
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_banner.css">
@@ -49,6 +54,32 @@
                             var reader = new FileReader();
                             reader.onloadend = function () {
                                 previa.src = reader.result;
+                                $(function(){
+                                    $('#banner-view').Jcrop();
+                                });
+                                $(function(){ 
+                                    $('#cropbox').Jcrop({
+                                        aspectRatio: 1,
+                                        onSelect: updateCoords
+                                    });
+
+                                    });
+
+                                    function updateCoords(c)
+                                    {
+                                    $('#x').val(c.x);
+                                    $('#y').val(c.y);
+                                    $('#w').val(c.w);
+                                    $('#h').val(c.h);
+                                    };
+
+                                    function checkCoords()
+                                    {
+                                    if (parseInt($('#w').val())) return true;
+                                    alert('Selecione a região para recortar.');
+                                    return false;
+                                    };
+
                             }                       
                             if(banner){
                                 reader.readAsDataURL(banner);
@@ -57,7 +88,10 @@
                             }
                         }
                     </script>
-                    <img class='banner-view' style="width: 200;" src='http://localhost/poticorp/Sistema-Corporativo/src/img/icons8-fotografia-60.png' alt='Ilustração para indicar prévia do banner.'>
+                    <img class='banner-view' id="banner-view" style="width: 200;" src='http://localhost/poticorp/Sistema-Corporativo/src/img/icons8-fotografia-60.png' alt='Ilustração para indicar prévia do banner.'>
+                    <br>
+                    
+
                     <br>
                     <label for="comentario">Comentário:</label>
                     <textarea name="comentario" id="comentario" cols="30" class="form-control" rows="11"></textarea>
@@ -65,6 +99,18 @@
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
             <a href="banners.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
         </form>
+                <!-- Formulário para realização do crop-->
+                    <form action="crop.php" method="post" onsubmit="return checkCoords();">
+                        <input type="hidden" id="x" name="x" />
+                        <input type="hidden" id="y" name="y" />
+                        <input type="hidden" id="w" name="w" />
+                        <input type="hidden" id="h" name="h" />
+                        <input type="submit" value="Crop Image" />
+                    </form>
     </div>
+   <!-- <img src="imagem.jpg" width="634" height="340" id="jcrop" /> -->
+    <script type="text/javascript">
+        
+    </script>
 </body>
 </html>
