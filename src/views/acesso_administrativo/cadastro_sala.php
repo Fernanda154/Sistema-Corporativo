@@ -1,26 +1,48 @@
+<?php
+        include_once("../../controle/conexao.php");
+        include('../../includes/nav.php');
+        include('menu.php');
+    
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potigás</title>
+
+
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../includes/ckeditor5-build-classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/menu.css">
+    <link rel="stylesheet" href="../../css/cadastro_publicacao.css">
 </head>
 <body>
-    <form action="crud_sala.php" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome">
-
-        <label for="especificacoes">Especificações:</label>
-        <input type="text" name="especificacoes" id="especificacoes">
-
-        <label for="status">Status de funcionamento:</label>
-        <select name="status" id="status">
-            <option value="0">Selecione o status</option>
-            <option value="Ativa">Ativa</option>
-            <option value="Em manutenção">Em manutenção</option>
-            <option value="Desativada">Desativada</option>
-        </select>
-        <input type="submit" name="cadastrar" value="Cadastrar">
-    </form>
+    <div class="container">
+        <form method="POST" action="../../controle/crud_sala.php">
+            <h4>CADASTRO DE SALA</h4>
+            <label for="titulo">Nome: </label>
+            <input type="text" class="form-control" name="nome" id="nome">
+            <br>
+            <label for="status">Status:</label>
+            <select name="status" id="status" class="form-control">
+                <option value="0">Selecione:</option>
+                <option value="1">Ativo</option>
+                <option value="2">Desativo</option>
+            </select>
+            <br>
+            <label for="espeficacoess" >Especificações:</label>
+            <textarea id="espeficacoes" name="especificacoes" class="form-control"></textarea>
+            <br>
+            
+            <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
+            <a href="salas.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
+        </form>
+    </div>
 </body>
 </html>

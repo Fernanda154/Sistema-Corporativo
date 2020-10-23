@@ -1,8 +1,8 @@
 <?php
 //require_once('../conexao.php');
-$query_setor = "SELECT cod_setor, nome FROM setor;";
-$result_setor = mysqli_query($poti_con, $query_setor) or die(mysqli_error($poti_con));
-$total_de_setores = mysqli_num_rows($result_setor);
+$query_sala = "SELECT cod_sala, nome FROM sala;";
+$result_sala = mysqli_query($poti_con, $query_sala) or die(mysqli_error($poti_con));
+$total_de_salas = mysqli_num_rows($result_sala);
 
     //Limite de dados a serem exibidos
     $limite_dados = 10;
@@ -18,8 +18,8 @@ $total_de_setores = mysqli_num_rows($result_setor);
 
     $lista_inicio = $limite_dados * $pagina_atual;
     //Query de busca funcionarios para tabela1
-    $query_table = "SELECT setor.cod_setor, setor.nome as setor, setor.sigla, setor.gerente, funcionario.nome FROM setor INNER JOIN funcionario ON setor.gerente = funcionario.cod_funcionario LIMIT $lista_inicio, $limite_dados;";
+    $query_table = "SELECT cod_sala, nome, status_funcionamento FROM sala LIMIT $lista_inicio, $limite_dados;";
     $result_table = mysqli_query($poti_con, $query_table) or die(mysqli_error($poti_con));
     // numero de páginas que a table vai ter 
-    $numero_de_paginas = ceil($total_de_setores/$limite_dados);
+    $numero_de_paginas = ceil($total_de_salas/$limite_dados);
 ?>

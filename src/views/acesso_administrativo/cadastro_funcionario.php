@@ -136,7 +136,7 @@
                 </div>
             </div>
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
-            <button type="button" class="btn btn-danger">Cancelar</button>
+            <a href="funcionarios.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
                 
             </form>
     </div>

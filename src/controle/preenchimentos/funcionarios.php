@@ -25,7 +25,7 @@
 
     $lista_inicio = $limite_dados * $pagina_atual;
     //Query de busca funcionarios para tabela1
-    $query_table = "SELECT funcionario.nome, funcionario.cod_funcionario, funcionario.login, setor.nome as setor, cargo.nomenclatura FROM funcionario INNER JOIN Setor ON funcionario.setor = Setor.cod_setor INNER JOIN Cargo ON funcionario.cargo = Cargo.cod_cargo LIMIT $lista_inicio, $limite_dados;";
+    $query_table = "SELECT funcionario.nome, funcionario.ramal, funcionario.cod_funcionario, funcionario.email, funcionario.login, setor.nome as setor, setor.sigla, cargo.nomenclatura FROM funcionario INNER JOIN Setor ON funcionario.setor = Setor.cod_setor INNER JOIN Cargo ON funcionario.cargo = Cargo.cod_cargo LIMIT $lista_inicio, $limite_dados;";
     $result_table = mysqli_query($poti_con, $query_table) or die(mysqli_error($poti_con));
     // numero de páginas que a table vai ter 
     $numero_de_paginas = ceil($total_de_funcionarios/$limite_dados);

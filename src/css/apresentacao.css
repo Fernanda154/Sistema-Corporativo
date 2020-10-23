@@ -1,0 +1,20 @@
+.container{
+    padding-top: 6%;
+    margin-left: 18%;
+    width: 70%;
+    background-image: url("../img/favicon.ico");
+    background-repeat: no-repeat;
+    background-attachment: fixed
+}
+h4{
+	font-size: 16px;
+    margin: 30px;
+    font-family: 'Open Sans';
+    font-weight: bolder;
+    color: #000;
+    text-align: center;
+}
+.title{
+    font-weight: bolder;
+    margin: 2px;
+}

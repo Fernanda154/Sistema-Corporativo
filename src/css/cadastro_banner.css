@@ -1,0 +1,35 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+.container{
+    margin-left: 11%;
+    text-align: center;
+}
+form{
+    margin-top: 6%;
+    width: 700px;
+    padding: 10px;
+    display: inline-block;
+    text-align: left;
+}
+.form-control{
+    height: 40px;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+    margin-bottom: 5px;
+}
+h4{
+	font-size: 16px;
+    margin: 3px;
+    font-family: 'Open Sans';
+    font-weight: bolder;
+    text-align: center;
+	color: #000;
+}
+.ck.ck-editor__editable_inline>:last-child{
+    height: 300px;
+}
+label{
+    margin-bottom: 0.2rem;
+}
+  

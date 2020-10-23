@@ -1,9 +1,3 @@
-<?php
-    include("../../controle/conexao.php");
-    include('../../controle/preenchimentos/reservas.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,41 +17,39 @@
         require_once('../../controle/conexao.php');
         include('../../includes/nav.php');
         include('menu.php');
-        include('../../controle/preenchimentos/reservas.php');
+        include('../../controle/preenchimentos/banners.php');
     ?>
     <div class="container">
         <div class="box_table" id="box_table">
             <form method="POST" id="form-pesquisa" action="">
                 <input type="search" class="busca" id="busca" name="busca" alt="table table-striped" placeholder="Buscar">
             </form>
-            <div class="add_user" onclick="window.location='cadastro_reservas.php';">
-                <img src="../../img/icons8-schedule-26.png" class="iconAddUser" alt="Ilustração para adição de novo usuário">
-                <p>Solicitar reserva</p>
+            <div class="add_user" onclick="window.location='cadastro_banner.php';">
+                <img src="../../img/icons8-fotografia-60.png" class="iconAddUser" alt="Ilustração para adição de novo usuário">
+                <p>Adicionar banner</p>
             </div>
             <table class="table table-striped" id="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col"></th>
-                    <th scope="col">Assunto</th>
-                    <th scope="col">Data início</th>
-                    <th scope="col">Solicitante</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Tamanho</th>
                     <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody class="resultado">
                     <?php
-                        while ($array_reservas = mysqli_fetch_assoc($result_table)) {
+                        while ($array_banners= mysqli_fetch_assoc($result_table)) {
                             echo "<tr>
-                                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_reservas['cod_reserva']."></th>
-                                    <td>". $array_reservas['assunto']."</td>
-                                    <td>". $array_reservas['data_inicio']."</td>
-                                    <td>". $array_reservas['solicitante']."</td>
-                                    <td>". $array_reservas['status'] ."</td>
+                                    <th><input type='checkbox' id='vehicle3' name='vehicle3' value=".$array_banners['cod_banner']."></th>
+                                    <td>". $array_banners['nome'] ."</td>
+                                    <td>". $array_banners['autor']."</td>
+                                    <td>". $array_banners['tamanho']."</td>
                                     <td> 
                                         <form method='POST' action=''>
-                                            <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_reservas['cod_reserva'].">
-                                            <img class='icons_opcoes detalhes' data-funcionario=".$array_reservas['cod_reserva']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
+                                            <input type='hidden' id='codBanner' name='cod_banner' value=".$array_banners['cod_banner'].">
+                                            <img class='icons_opcoes detalhes' data-banner=".$array_banners['cod_banner']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
                                         </form>
                                         <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
                                 </tr>
@@ -70,16 +62,16 @@
             <nav aria-label="Navegação de página exemplo">
                 <ul class="pagination justify-content-end">
                     <li class="page-item <?php echo $pagina_atual == 0 ? 'disabled': ''?>">
-                        <a class="page-link" href="funcionarios.php" tabindex="-1"><<</a>
+                        <a class="page-link" href="banners.php" tabindex="-1"><<</a>
                     </li>
                     <?php
                         for($i=0;$i<$numero_de_paginas;$i++){
                             $estilo = "class=\"active\"";
                     ?>
-                    <li <?php echo $estilo; ?>><a class="page-link" href="funcionarios.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
+                    <li <?php echo $estilo; ?>><a class="page-link" href="banners.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
                     <li class="page-item">
                         <?php } ?>
-                    <a class="page-link" href="funcionarios.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
+                    <a class="page-link" href="banners.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
                     </li>
                 </ul>
             </nav>
@@ -109,7 +101,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../js/buscaReservas.js"></script>
-    <!--<script type="text/javascript" src="../../js/buscaDetalhes.js"></script>-->
+	<script type="text/javascript" src="../../js/buscaFuncionarios.js"></script>
+    <script type="text/javascript" src="../../js/buscaDetalhes.js"></script>
 </body>
 </html>
