@@ -1,0 +1,16 @@
+.post{
+    margin-top: 6%;
+    width: 700px;
+    padding: 10px;
+    display: inline-block;
+    height: 10vh;
+    overflow: hidden;
+    text-align: left;
+}
+.container{
+    margin-left: 11%;
+    text-align: center;
+}
+a{
+  color: #2f282899;  
+}

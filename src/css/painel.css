@@ -67,7 +67,7 @@ li ul {
 #menu {
 	font-size: 1.5em;
 	width: 100%;
-	padding-top: 5vh;
+	padding-top: 3vh;
 	margin-left: 3px;
 }
 #menu li a {
@@ -240,6 +240,7 @@ hr{
 	margin-bottom: 5px;
 	margin: 0px;
 	font-family: 'Open Sans';
+	cursor: pointer;
 }
 .gridComunicados p{
 	margin-left: 2%;
@@ -485,7 +486,7 @@ a:active {
 			overflow: hidden;
 			display: none;
 			left: 100%;
-			top: 14em;
+			top: 13em;
 			float: none;
 			background-color: #000;
 			opacity: 0.5;

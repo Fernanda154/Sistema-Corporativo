@@ -4,6 +4,7 @@
     include('../../controle/preenchimentos/setores.php');
     include('../../includes/nav.php');
     include('menu.php');
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,12 +54,10 @@
                             var previa = document.querySelector('.banner-view');
                             var reader = new FileReader();
                             reader.onloadend = function () {
+                                $('#banner-view').css({display: "block" });
                                 previa.src = reader.result;
-                                $(function(){
-                                    $('#banner-view').Jcrop();
-                                });
                                 $(function(){ 
-                                    $('#cropbox').Jcrop({
+                                    $('#banner-view').Jcrop({
                                         aspectRatio: 1,
                                         onSelect: updateCoords
                                     });
@@ -88,7 +87,7 @@
                             }
                         }
                     </script>
-                    <img class='banner-view' id="banner-view" style="width: 200;" src='http://localhost/poticorp/Sistema-Corporativo/src/img/icons8-fotografia-60.png' alt='Ilustração para indicar prévia do banner.'>
+                    <img class='banner-view' id="banner-view" style="width: 200; display: none;" src='' alt='Ilustração para indicar prévia do banner.'>
                     <br>
                     
 
@@ -98,9 +97,10 @@
                     <br>
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
             <a href="banners.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
-        </form>
+                </form>
                 <!-- Formulário para realização do crop-->
                     <form action="crop.php" method="post" onsubmit="return checkCoords();">
+                        <input type="hidden" name="src">
                         <input type="hidden" id="x" name="x" />
                         <input type="hidden" id="y" name="y" />
                         <input type="hidden" id="w" name="w" />

@@ -93,8 +93,8 @@ if (!isset($_SESSION)) {
 							<img src="../img/carregando.gif" />
 						</section>
         	</div>
-        	<div class="gridComunicados">
-        		<h4>COMUNICADOS</h4>
+        	<div class="gridComunicados" >
+        		<h4 onclick="window.location='comunicados.php';">COMUNICADOS</h4>
             <hr>
             <?php
             if ($total_de_publicacoes > 0){
@@ -110,7 +110,7 @@ if (!isset($_SESSION)) {
             ?>
         	</div>
         	<div class="gridReservas">
-        	<h4>SALA DE REUNIÕES</h4>
+        	<h4 onclick="window.location='reservas.php';">SALA DE REUNIÕES</h4>
           <hr>
           
 			      <?php

@@ -30,6 +30,6 @@ include_once ('conexao.php');
                 ";
         }
     }else{
-        echo "Nenhum usuário encontrado ...";
+        echo "Nenhum comunicado encontrado ...";
     }
     ?>
