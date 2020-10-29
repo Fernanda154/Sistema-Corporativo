@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../../includes/ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="../../includes/ckeditor/ckeditor.js"></script>
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_publicacao.css">
@@ -57,7 +57,7 @@
             <label for="texto">Texto:</label>
             <textarea id="texto" class="form-control"></textarea>
             <br>-->
-            <textarea id="editor" name="texto">
+            <textarea id="editor" class="ckeditor" name="texto">
                 <p>Conteúdo</p>
             </textarea>
             <script>
@@ -66,7 +66,7 @@
                     .catch( error => {
                         console.error( error );
                     } );
-                    
+                    CKFinder.setupCKEditor( editor, '/ckfinder/' );
             </script>
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
             <a href="comunicados.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
