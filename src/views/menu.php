@@ -25,7 +25,7 @@
 			<a href="apresentacao.php"><img src="../img/apresentacao.png" class="iconsMenu"><p>QUEM SOMOS</p></a>
 		</li>
 		<li>
-			<a href="comunicados_internos_recebidos.php"><img src="../img/cip.png" class="iconsMenu"><p>CIP</p></a>
+			<a href="cips.php"><img src="../img/cip.png" class="iconsMenu"><p>CIP</p></a>
 		</li>
 		<li>
 			<a href="reservas.php"><img src="../img/calendario.png" class="iconsMenu"><p>RESERVAS</p></a>

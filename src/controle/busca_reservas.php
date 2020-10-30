@@ -16,8 +16,8 @@ include_once ('conexao.php');
 
     $lista_inicio = $limite_dados * $pagina_atual;
     //Pesquisar no banco de dados nome do usuario referente a palavra digitada
-    $result_reserva = "SELECT reserva.assunto, reserva.data_inicio, reserva.status, reserva.solicitante FROM reserva INNER JOIN funcionario ON reserva.solicitante = funcionario.cod_funcionario WHERE reserva.assunto LIKE '%$palavra%' OR reserva.data_inicio LIKE '%$palavra%' OR reserva.solicitante LIKE '%$palavra%' OR reserva.status LIKE %$palavra%  LIMIT $lista_inicio, $limite_dados;";
-    $resultado_reserva = mysqli_query($poti_con, $result_reserva);
+    $result_reserva = "SELECT reserva.cod_reserva,reserva.assunto, reserva.data_inicio, reserva.status, reserva.solicitante, funcionario.nome FROM reserva INNER JOIN funcionario ON reserva.solicitante = funcionario.cod_funcionario WHERE reserva.assunto LIKE '%$palavra%' OR reserva.data_inicio LIKE '%$palavra%' OR reserva.solicitante LIKE '%$palavra%' OR reserva.status LIKE '%$palavra%'  LIMIT $lista_inicio, $limite_dados;";
+    $resultado_reserva = mysqli_query($poti_con, $result_reserva) or die(mysqli_error($poti_con));
     if(($resultado_reserva) AND ($resultado_reserva->num_rows != 0 )){
         while($row_reserva = mysqli_fetch_assoc($resultado_reserva)){
             echo "<tr>
@@ -31,6 +31,6 @@ include_once ('conexao.php');
                 ";
         }
     }else{
-        echo "Nenhum usuário encontrado ...";
+        echo "Nenhuma reserva encontrada ...";
     }
     ?>

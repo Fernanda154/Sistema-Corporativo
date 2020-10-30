@@ -10,14 +10,13 @@ CKEDITOR.editorConfig = function (config) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#004d66';
-	config.filebrowserBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=files';
-	config.filebrowserImageBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=images';
-	config.filebrowserFlashBrowseUrl = 'ckeditor/kcfinder/browse.php?opener=ckeditor&type=flash';
-	config.filebrowserUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=files';
-	config.filebrowserImageUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=images';
-	config.filebrowserFlashUploadUrl = 'ckeditor/kcfinder/upload.php?opener=ckeditor&type=flash';
 
-
+	config.filebrowserBrowseUrl = '../../includes/ckeditor/ckfinder/ckfinder.html',
+		config.filebrowserImageBrowseUrl = '../../includes/ckeditor/ckfinder/ckfinder.html?type=Images',
+		config.filebrowserFlashBrowseUrl = '../../includes/ckeditor/ckfinder/ckfinder.html?type=Flash',
+		config.filebrowserUploadUrl = '../../includes/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+		config.filebrowserImageUploadUrl = '../../includes/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+		config.filebrowserFlashUploadUrl = '../../includes/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
 	// The toolbar groups arrangement, optimized for two toolbar rows.
 	config.toolbarGroups = [
 		{ name: 'clipboard', groups: ['clipboard', 'undo'] },

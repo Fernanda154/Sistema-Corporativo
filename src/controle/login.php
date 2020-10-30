@@ -13,6 +13,7 @@
                 session_start();
             }
             $_SESSION['cod_funcionario'] = $funcionario['cod_funcionario'];
+            $_SESSION['cargo'] = $funcionario['cargo'];
             $_SESSION['nome'] = $funcionario['nome'];
             header('Location: ../views/painel.php');
             echo "Logou";
