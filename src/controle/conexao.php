@@ -4,11 +4,11 @@
 $env = getenv('ENV');
 if ($env == 'PRODUCTION') {
 	$host="us-cdbr-east-02.cleardb.com";
-	$socket="";
 	$port=3306;
-	$user="bfdb92c39415ed";
-	$password="61499fd8";
-	$dbname="heroku_7e47145fe11065e";
+	$socket="";
+	$user="bab14c1cdab5d0";
+	$password="";
+	$dbname="heroku_d52404dbf2a4e92";
 }
 else {
 	$host="127.0.0.1";
@@ -25,3 +25,5 @@ $poti_con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 //$con->close();
 ?>
+
+
