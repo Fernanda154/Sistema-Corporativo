@@ -7,7 +7,7 @@ if ($env == 'PRODUCTION') {
 	$port=3306;
 	$socket="";
 	$user="bab14c1cdab5d0";
-	$password="";
+	$password="8a891d12";
 	$dbname="heroku_d52404dbf2a4e92";
 }
 else {
