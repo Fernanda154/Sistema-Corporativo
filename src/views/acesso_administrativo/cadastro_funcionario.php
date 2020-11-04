@@ -4,6 +4,7 @@
     include('menu.php');
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
+    include('../../controle/preenchimentos/select_setor.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +22,7 @@
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_funcionario.css">
-    
+    <script src="../../js/validaUsuario.js"></script>
 </head>
 <body>
     
@@ -31,10 +32,10 @@
             <div class="row">
                 <div class="col-sm-8">
                     <label for="nome">Nome: </label>
-                    <input type="text" name="nome_funcionario" id="nome_funcionario" class="form-control" placeholder="Nome completo">
+                    <input type="text" name="nome_funcionario" id="nome_funcionario" class="form-control" placeholder="Nome completo" required>
                     
                     <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(DDD)X XXXX-XXXX">
+                    <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(DDD)X XXXX-XXXX" required>
                 </div>
                 <div class="col-sm-4">
                     <div class="coluna_foto">
@@ -53,6 +54,24 @@
                                     previa.src = "";
                                 }
                             }
+                            var nome = document.getElementById('nome').value();
+                            var telefone = document.getElementById('telefone').value();
+                            var dataNascimento = document.getElementById('data_nascimento').value();
+                            var email = document.getElementById('email').value();
+                            var ramal = document.getElementById('ramal').value();
+                            var login = document.getElementById('login').value();
+                            var senha = document.getElementById('senha').value();
+                            var confirmacaoSenha = document.ElementById('conf_senha').value();
+                            var setor = document.getElementById('setor').value();
+
+                            function validaUsuario(){
+                                if(nome == ""){
+                                    alert("Campo nome não pode estar vazio.");
+                                }
+                                if(telefone == ""){
+                                    alert("Campo de telefone não pode estar vazio.");
+                                }
+                            }
                         </script>
                         <img class='foto_funcionario' src='http://localhost/poticorp/Sistema-Corporativo/src/img/blank-profile-picture-973460_1280.png' alt='Ilustração para opção de editar'>
                        
@@ -62,36 +81,36 @@
             <div class="row">
                 <div class="col">
                     <label for="data_nascimento">Data de nascimento:</label>
-                    <input type="date" id="data_nascimento" class="form-control" name="data_nascimento">
+                    <input type="date" id="data_nascimento" class="form-control" name="data_nascimento" required>
                 </div>
                 <div class="col">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="nome.sobrenome@potigas.com.br">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="nome.sobrenome@potigas.com.br" required>
                 
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
                         <label for="ramal">Ramal:</label>
-                        <input type="ramal" name="ramal" id="ramal" class="form-control" placeholder="XXXX">
+                        <input type="ramal" name="ramal" id="ramal" class="form-control" placeholder="XXXX" required>
                     </div>
                 <div class="col">
                     <label for="login">Login:</label>
-                    <input type="text" name="login" class="form-control" id="login">
+                    <input type="text" name="login" class="form-control" id="login" required>
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
                         <label for="senha">Senha:</label>
-                        <input type="password" name="senha" class="form-control" id="senha">
+                        <input type="password" name="senha" class="form-control" id="senha" required>
                     </div>
                 <div class="col">
                     <label for="conf_senha">Confirme a senha:</label>
-                    <input type="password" name="conf_senha" class="form-control" id="conf_senha">
+                    <input type="password" name="conf_senha" class="form-control" id="conf_senha" required>
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
                         <label for="cargo">Selecione o cargo que o funcionário irá ocupar:</label>
-                        <select name="cargo" class="form-control" id="cargo">
-                            <option value="0">Selecione o cargo</option>
+                        <select name="cargo" class="form-control" id="cargo" required>
+                            <option value="">Selecione o cargo</option>
                             <?php
                             while ($array_cargos = mysqli_fetch_assoc($result_cargos)) {
                                 echo "<option value='".$array_cargos['cod_cargo']."'>".utf8_encode($array_cargos['nomenclatura'])."</option>";
@@ -101,10 +120,10 @@
                     </div>
                 <div class="col">
                     <label for="setor">Selecione o setor onde o funcionário irá trabalhar:</label>
-                    <select name="setor" class="form-control" id="setor">
-                        <option value="0">Selecione o setor</option>
+                    <select name="setor" class="form-control" id="setor" required>
+                        <option value="">Selecione o setor</option>
                         <?php
-                        while ($array_setores = mysqli_fetch_assoc($result_setores)) {
+                        while ($array_setores = mysqli_fetch_assoc($result_select_setor)) {
                             echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
                         }
                         ?>
@@ -135,9 +154,9 @@
                     </fieldset>
                 </div>
             </div>
-            <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
+            <input type="submit" name="inserir" class="btn btn-primary" onSubmit="validaUsuario()" value="Cadastrar">
             <a href="funcionarios.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
-                
+            
             </form>
     </div>
 

@@ -1,7 +1,7 @@
 <?php
     include_once("../../controle/conexao.php");
     include_once("../../controle/preenchimentos/select_funcionarios.php");
-    include('../../controle/preenchimentos/setores.php');
+    include('../../controle/preenchimentos/select_setor.php');
     include('../../includes/nav.php');
     include('menu.php');
 ?>
@@ -29,18 +29,18 @@
             <h4>ADICIONAR DOCUMENTO</h4>
             <br>
                     <label for="setor">Selecione o setor ao qual o documento pertence:</label>
-                        <select name="setor" class="form-control" id="setor">
-                            <option value="0">Selecione o setor</option>
+                        <select name="setor" class="form-control" id="setor" required>
+                            <option value="">Selecione o setor</option>
                             <?php
-                                while ($array_setores = mysqli_fetch_assoc($result_setores)) {
+                                while ($array_setores = mysqli_fetch_assoc($result_select_setor)) {
                                     echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
                                 }
                             ?>
                     </select>
                     <br>
                     <label for="autor">Selecione o autor do arquivos:</label>
-                    <select name="autor" class="form-control" id="autor">
-                    <option value="0">Selecione o autor:</option>
+                    <select name="autor" class="form-control" id="autor" required>
+                    <option value="">Selecione o autor:</option>
                     <?php
                     while ($array_funcionarios = mysqli_fetch_assoc($result_select_funcionarios)) {
                         echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";
@@ -49,7 +49,7 @@
                     </select>
                     <br>
                     <label for="documento">Documento:</label>
-                    <input type="file" name="documento" class="form-control" id="documento">
+                    <input type="file" name="documento" class="form-control" id="documento" required>
                     <br>
                     <label for="comentario">Comentário:</label>
                     <textarea name="comentario" id="comentario" cols="30" class="form-control" rows="11"></textarea>

@@ -34,8 +34,8 @@
             <input type="text" class="form-control" name="titulo" id="titulo">
             <br>
             <label for="autor">Autor: </label>
-            <select name="autor" class="form-control"  id="autor">
-                <option value="0">Selecione:</option>
+            <select name="autor" class="form-control"  id="autor" required>
+                <option value="">Selecione:</option>
                 <?php
                     while ($array_funcionarios = mysqli_fetch_assoc($result_funcionario)) {
                         echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";
@@ -44,21 +44,21 @@
             </select>
             <br>
             <label for="status">Status:</label>
-            <select name="status" id="status" class="form-control">
-                <option value="0">Selecione:</option>
+            <select name="status" id="status" class="form-control" required>
+                <option value="">Selecione:</option>
                 <option value="1">Ativo</option>
                 <option value="2">Desativo</option>
             </select>
             <br>
             <label for="comentario" >Comentário:</label>
-            <textarea id="comentario" name="comentario" class="form-control"></textarea>
+            <textarea id="comentario" name="comentario" class="form-control" required></textarea>
             <br>
             <!--
             <label for="texto">Texto:</label>
             <textarea id="texto" class="form-control"></textarea>
             <br>-->
             <textarea id="editor" class="ckeditor" name="texto">
-                <p>Conteúdo</p>
+                
             </textarea>
             <script>
                 ClassicEditor

@@ -27,17 +27,17 @@
         <form method="POST" action="../../controle/crud_sala.php">
             <h4>CADASTRO DE SALA</h4>
             <label for="titulo">Nome: </label>
-            <input type="text" class="form-control" name="nome" id="nome">
+            <input type="text" class="form-control" name="nome" id="nome" required>
             <br>
             <label for="status">Status:</label>
-            <select name="status" id="status" class="form-control">
-                <option value="0">Selecione:</option>
+            <select name="status" id="status" class="form-control" required>
+                <option value="">Selecione:</option>
                 <option value="1">Ativo</option>
                 <option value="2">Desativo</option>
             </select>
             <br>
             <label for="espeficacoess" >Especificações:</label>
-            <textarea id="espeficacoes" name="especificacoes" class="form-control"></textarea>
+            <textarea id="espeficacoes" name="especificacoes" class="form-control" required></textarea>
             <br>
             
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">

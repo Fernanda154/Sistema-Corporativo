@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_publicacao.css">
+    
 </head>
 
 <body> 
@@ -32,10 +33,10 @@
         <form method="POST" action="../../controle/crud_publicacao.php">
             <h4>ESCREVER CIP</h4>
             <label for="assunto">Assunto: </label>
-            <input type="text" class="form-control" name="assunto" id="assunto">
+            <input type="text" class="form-control" name="assunto" id="assunto" required>
             <br>
             <label for="remetentes">Remetentes:</label>
-            <select name="remetentes" class="form-control" id="remetentes" multiple="multiple">
+            <select name="remetentes" class="form-control" id="remetentes" multiple="multiple" required>
                 <option value="">Selecione:</option>
                 <?php
                     while ($array_remetentes = mysqli_fetch_assoc($result_emails)) {
@@ -45,8 +46,8 @@
             </select>
             <br>
             <label for="autor">Selecione o autor do arquivos:</label>
-            <select name="autor" class="form-control" id="autor">
-                <option value="0">Selecione o autor:</option>
+            <select name="autor" class="form-control" id="autor" required>
+                <option value="">Selecione o autor:</option>
                 <?php
                     while ($array_funcionarios = mysqli_fetch_assoc($result_select_funcionarios)) {
                         echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";
@@ -55,15 +56,15 @@
             </select>
             <br>
             <label for="status">Status:</label>
-            <select name="status" id="status" class="form-control">
-                <option value="0">Selecione:</option>
+            <select name="status" id="status" class="form-control" required>
+                <option value="">Selecione:</option>
                 <option value="1">Ativo</option>
                 <option value="2">Desativo</option>
             </select>
             <br>
             
-            <textarea id="editor" class="ckeditor" name="texto">
-                <p>Conteúdo</p>
+            <textarea id="editor" class="ckeditor" name="texto" required>
+               
             </textarea>
             <script>
                 

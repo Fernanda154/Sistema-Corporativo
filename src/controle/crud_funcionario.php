@@ -31,12 +31,12 @@
                     VALUES('$nome', '$telefone', '$email', '$data_nascimento', '$ramal', '$senha', '$login', '$permissoes', $cargo, $setor);";
         $result_funcionario = mysqli_query($poti_con, $query) or die(mysqli_error($poti_con));
         $cod_funcionario = mysqli_insert_id($poti_con);
-        if($cod_funcionario != false){
-            echo "
+        if($result_funcionario != false){
+            ?>
                 <script>
                     setTimeout(function(){ alert('Funcionário cadastrado com sucesso!'); }, 3000);
                 </script>
-            ";
+            <?php
         }
         if(isset($_FILES["foto"])){
 
@@ -61,6 +61,7 @@
                 $nome_foto = $data_processada."_".$nome_foto;
                 $insert_foto = "INSERT INTO foto (nome, tamanho, caminho, funcionario) VALUES ('$nome_foto', $tamanho,'$caminhoArquivo', $cod_funcionario)";
                 $result_foto = mysqli_query($poti_con, $insert_foto) or die(mysqli_error($poti_con));
+                
             }
         }
         header("Location: ../views/acesso_administrativo/funcionarios.php");

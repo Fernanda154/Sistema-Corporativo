@@ -26,16 +26,16 @@
         <form action="../../controle/crud_reserva.php" class="form_cadastro" method="POST" enctype="multipart/form-data">
             <h4>SOLICITAÇÃO DE RESERVA</h4>
                     <label for="nome">Assunto: </label>
-                    <input type="text" name="assunto" id="assunto" class="form-control">
+                    <input type="text" name="assunto" id="assunto" class="form-control" required>
 
                     <label for="descricao">Descrição:</label>
-                    <input type="text" name="descricao" class="form-control" id="data_inicio">
+                    <input type="text" name="descricao" class="form-control" id="data_inicio" required>
                     
                     <label for="data_inicio">Data de início:</label>
-                    <input type="date" name="data_inicio" class="form-control" id="data_inicio">
+                    <input type="date" name="data_inicio" class="form-control" id="data_inicio" required>
 
                     <label for="data_fim">Data de término:</label>
-                    <input type="date" name="data_fim" class="form-control" id="data_inicio">
+                    <input type="date" name="data_fim" class="form-control" id="data_inicio" required>
 
                     <label for="comentario">Comentário:</label>
                     <textarea name="comentario" id="comentario" cols="30" class="form-control" rows="11"></textarea>

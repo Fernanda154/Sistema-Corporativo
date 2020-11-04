@@ -29,14 +29,14 @@
         <form method="POST" action="../../controle/crud_setor.php">
             <h4>CADASTRO DE SETOR</h4>
             <label for="titulo">Nome: </label>
-            <input type="text" class="form-control" name="nome" id="nome">
+            <input type="text" class="form-control" name="nome" id="nome" required>
             <br>
             <label for="titulo">Sigla: </label>
-            <input type="text" class="form-control" name="sigla" id="sigla">
+            <input type="text" class="form-control" name="sigla" id="sigla" required>
             <br>
             <label for="gerente">Gerente: </label>
-            <select name="gerente" class="form-control"  id="autor">
-                <option value="0">Selecione:</option>
+            <select name="gerente" class="form-control"  id="autor" required>
+                <option value="">Selecione:</option>
                 <?php
                     while ($array_funcionarios = mysqli_fetch_assoc($result_funcionario)) {
                         echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";

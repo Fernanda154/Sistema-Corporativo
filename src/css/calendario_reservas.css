@@ -5,3 +5,7 @@
 .fc-toolbar h2{
     font-size: 1.4em;
 }
+.container{
+    width: 55%;
+    margin-left: 25%;
+  }

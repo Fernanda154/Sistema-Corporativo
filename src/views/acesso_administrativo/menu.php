@@ -19,7 +19,7 @@
 	</a>
 	<ul id="menu">
 		<li>
-			<a href="../../painel.php"><img src="../../img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
+			<a href="../painel.php"><img src="../../img/home.png" class="iconsMenu"><p>INÍCIO</p></a>
 		</li>
 		<li>
 			<a href="../apresentacao.php"><img src="../../img/apresentacao.png" class="iconsMenu"><p>QUEM SOMOS</p></a>

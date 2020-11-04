@@ -26,7 +26,7 @@
         <form method="POST" action="../../controle/crud_cargo.php">
             <h4>CADASTRO DE CARGO</h4>
             <label for="nomenclatura">Nomenclatura: </label>
-            <input type="text" class="form-control" name="nomenclatura" id="nomenclatura">
+            <input type="text" class="form-control" name="nomenclatura" id="nomenclatura" required>
             <br>
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
             <a href="cargos.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
