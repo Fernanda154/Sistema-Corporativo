@@ -527,3 +527,31 @@ a:active {
 .dropAdmin{
 	top: 4.5em !important;
 }
+@media only screen and (min-height: 770px) {
+	/*DEFINIÇÃO DE GRID*/
+	.container{
+		display: grid;
+		grid-template-columns: 13vw 23vw 25vw 24vw;
+		grid-template-rows: 41vh 28vh 28vh;
+		text-align: left;
+		background-color: #dadfe2;
+		grid-gap: 1em;
+		height: 120vh;
+		margin-left: 0%;
+	}
+	.item img {
+		height: 30vh !important;
+		width: 45vw !important;
+		position: initial;
+		overflow: initial;
+	}
+	.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+		margin-right: 75px;
+	}
+	.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+		width: 30px;
+		height: 30px;
+		margin-top: 35px;
+		font-size: 30px;
+	}
+}

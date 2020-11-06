@@ -79,7 +79,7 @@
 			<?php
 			}
 			?>
-					<li><a href="../controle/logout.php"><img src="../img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
+					<li onclick="alert('Deseja mesmo sair?')"><a href="../controle/logout.php"><img src="../img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
 
 				</ul>
 	</div>
