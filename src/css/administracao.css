@@ -2,11 +2,11 @@
     padding-top: 6%;
     margin-left: 18%;
     width: 70%;
-    
+
     background-repeat: no-repeat;
     background-attachment: fixed
 }
-h4{
+h1{
 	font-size: 16px;
     margin: 30px;
     font-family: 'Open Sans';
@@ -17,4 +17,11 @@ h4{
 .title{
     font-weight: bolder;
     margin: 2px;
+}
+h2{
+	  font-size: 14px;
+    margin-bottom: 30px;
+    font-family: 'Open Sans';
+    font-weight: bolder;
+    color: #000;
 }

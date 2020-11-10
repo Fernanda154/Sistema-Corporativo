@@ -4,7 +4,7 @@
     $query_reservas = "SELECT reserva.assunto,reserva.cod_reserva, reserva.data_inicio, reserva.data_fim, reserva.status, reserva.solicitante, funcionario.nome as solicitante FROM reserva INNER JOIN funcionario ON reserva.solicitante = funcionario.cod_funcionario;";
     $result = mysqli_query($poti_con, $query_reservas);
     $array_reserva = mysqli_fetch_assoc($result);
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +47,13 @@
             <option value="">Selecione uma sala</option>
             <?php
                 while ($array_salas = mysqli_fetch_assoc($result_sala)) {
-                    echo "<option value='".$array_salas['cod_sala']."'>".utf8_encode($array_salas['nome'])."</option>";
+                    echo "<option value='".$array_salas['cod_sala']."' data-sala='". $array_salas['cod_sala'] ."'>".utf8_encode($array_salas['nome'])."</option>";
                 }
             ?>
         </select>
-        <input type="submit" class="btn btn-primary" id="buscar" name="buscar" value="Buscar">
+        <input type="submit" class="btn btn-primary buscar" id="buscar" name="buscar" value="Buscar">
+        <div class="resultado_da_busca">
+        </div>
         <div id="calendario"></div>
         <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -66,13 +68,13 @@
                         <dl class="row">
                             <dt class="col-sm-3">Código da reserva</dt>
                             <dd class="col-sm-9" id="id"></dd>
-                            
+
                             <dt class="col-sm-3">Assunto</dt>
                             <dd class="col-sm-9" id="title"></dd>
-                            
+
                             <dt class="col-sm-3">Início do evento</dt>
                             <dd class="col-sm-9" id="start"></dd>
-                            
+
                             <dt class="col-sm-3">Fim do evento</dt>
                             <dd class="col-sm-9" id="end"></dd>
                         </dl>
@@ -93,13 +95,13 @@
                         <dl class="row">
                             <dt class="col-sm-3">Código da reserva</dt>
                             <dd class="col-sm-9" id="id"></dd>
-                            
+
                             <dt class="col-sm-3">Assunto</dt>
                             <dd class="col-sm-9" id="title"></dd>
-                            
+
                             <dt class="col-sm-3">Início do evento</dt>
                             <dd class="col-sm-9" id="start"></dd>
-                            
+
                             <dt class="col-sm-3">Fim do evento</dt>
                             <dd class="col-sm-9" id="end"></dd>
                         </dl>
@@ -108,6 +110,6 @@
             </div>
         </div>
     </div>
-   
+   <script src="../js/verificaReservas.js" charset="utf-8"></script>
 </body>
 </html>

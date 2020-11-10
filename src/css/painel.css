@@ -21,7 +21,7 @@
 .gridBarraMenu{
 	grid-row-start: 1;
 	grid-row-end: 4;
-  	grid-column-start: 1;
+  grid-column-start: 1;
 	grid-column-end: 1;
 	background: #343a40;
 	padding-top: 5vh;
@@ -102,7 +102,7 @@ body{
 	width: 100%;
 	height: 8vh;
 	background-color: #8fbc18;
-	position: fixed; 
+	position: fixed;
 	z-index: 10000;
 }
 .nav p {
@@ -502,7 +502,7 @@ a:active {
 		font-size: 14px !important;
 		color: #D4C6C6;
 		width: auto;
-		
+
 	}
 /*CSS nav*/
 .iconMaisNome{
@@ -553,5 +553,25 @@ a:active {
 		height: 30px;
 		margin-top: 35px;
 		font-size: 30px;
+	}
+	.nav{
+		width: 100%;
+		height: 6vh;
+		background-color: #8fbc18;
+		position: fixed;
+		z-index: 10000;
+	}
+	.gridBarraMenu{
+		grid-row-start: 1;
+		grid-row-end: 4;
+	  grid-column-start: 1;
+		grid-column-end: 1;
+		background: #343a40;
+		padding-top: 5vh;
+		border-radius: 0px !important;
+		position: fixed;
+		margin-top: 5.9vh;
+		height: 100%;
+		width: 155px;
 	}
 }

@@ -18,5 +18,7 @@
             header('Location: ../views/painel.php');
             echo "Logou";
         }
+    }else{
+      echo "<script>alert('Usuário não encontrado.');</script>";
     }
 ?>

@@ -3,5 +3,5 @@
     $_SESSION['cod_funcionario'] = '';
     $_SESSION['nome'] = '';
     session_destroy();
-    header("Location: ../index.html")
+    header("Location: ../index.php")
 ?>

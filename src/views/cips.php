@@ -31,7 +31,7 @@
                 <input type="search" class="busca" id="busca" name="busca" alt="table table-striped" placeholder="Buscar">
             </form>
             <?php
-                echo "$cargo";
+
                 if($cargo == 1){
             ?>
                 <div class='add_user' onclick="window.location='acesso_administrativo/cadastro_cip.php';">
@@ -41,10 +41,7 @@
             <?php
                 }
             ?>
-            <div class="add_user" onclick="window.location='acesso_administrativo/cadastro_cip.php';">
-                <img src="../img/icons8-new-post-52.png" class="iconAddUser" alt="Ilustração para adição de novo comunicado interno">
-                <p>Escrever cip</p>
-            </div>
+
             <table class="table table-striped" id="table table-striped">
                 <thead>
                     <tr>
@@ -63,32 +60,32 @@
                                     <td>". $array_cip['titulo']."</td>
                                     <td>". utf8_encode ($array_cip['nome']) ."</td>
                                     <td>".$array_cip['data_emissao']."</td>
-                                    <td> 
+                                    <td>
                                         <form method='POST' action=''>
-                                            <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_cip['cod_comunicado'].">
-                                            <img class='icons_opcoes detalhes' data-funcionario=".$array_cip['cod_funcionario']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
+                                            <input type='hidden' id='cod_cip' name='cod_cip' value=".$array_cip['cod_comunicado'].">
+                                            <img class='icons_opcoes detalhes' data-cip=".$array_cip['cod_comunicado']." src='../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
                                         </form>
-                                        <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
+
                                 </tr>
                                 ";
                         }
                     ?>
-                    
+
                 </tbody>
             </table>
             <nav aria-label="Navegação de página exemplo">
                 <ul class="pagination justify-content-end">
                     <li class="page-item <?php echo $pagina_atual == 0 ? 'disabled': ''?>">
-                        <a class="page-link" href="funcionarios.php" tabindex="-1"><<</a>
+                        <a class="page-link" href="cips.php" tabindex="-1"><<</a>
                     </li>
                     <?php
                         for($i=0;$i<$numero_de_paginas;$i++){
                             $estilo = "class=\"active\"";
                     ?>
-                    <li <?php echo $estilo; ?>><a class="page-link" href="funcionarios.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
+                    <li <?php echo $estilo; ?>><a class="page-link" href="cips.php?pagina=<?php echo ($i+1); ?>"><?php echo $i+1; ?></a></li>
                     <li class="page-item">
                         <?php } ?>
-                    <a class="page-link" href="funcionarios.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
+                    <a class="page-link" href="cips.php?pagina=<?php echo $numero_de_paginas; ?>">>></a>
                     </li>
                 </ul>
             </nav>
@@ -97,7 +94,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -105,7 +102,7 @@
         </button>
       </div>
       <div class="modal-body">
-      
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -118,7 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../js/buscaFuncionarios.js"></script>
-    <script type="text/javascript" src="../../js/buscaDetalhes.js"></script>
+	<script type="text/javascript" src="../js/buscaDetalhesCip.js"></script>
+    <script type="text/javascript" src="../../js/buscaDetalhesCip.js"></script>
 </body>
 </html>

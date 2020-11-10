@@ -13,9 +13,9 @@ if ($env == 'PRODUCTION') {
 else {
 	$host="127.0.0.1";
 	$socket="";
-	$port=3300;
+	$port=3306;
 	$user="root";
-	$password="cabeloloco154";
+	$password="";
 	$dbname="intranet_corporativa";
 }
 
@@ -25,5 +25,4 @@ $poti_con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 //$con->close();
 ?>
-
 

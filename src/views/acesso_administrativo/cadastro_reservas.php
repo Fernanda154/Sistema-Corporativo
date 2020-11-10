@@ -2,6 +2,9 @@
     include_once("../../controle/conexao.php");
     include('../../includes/nav.php');
     include('menu.php');
+
+    $query_salas = "SELECT nome, cod_sala FROM sala WHERE status_funcionamento = 1";
+    $result_salas = mysqli_query($poti_con, $query_salas) or die(mysqli_error($poti_con));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +22,7 @@
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_reserva.css">
-    
+
 </head>
 <body>
     <div class="container">
@@ -30,7 +33,16 @@
 
                     <label for="descricao">Descrição:</label>
                     <input type="text" name="descricao" class="form-control" id="data_inicio" required>
-                    
+
+                    <label for="sala">Sala:</label>
+                    <select class="form-control" id="sala" name="sala">
+                      <option value="">Selecione a sala</option>
+                      <?php
+                          while ($array_salas = mysqli_fetch_assoc($result_salas)) {
+                              echo "<option value='".$array_salas['cod_sala']."'>".utf8_encode($array_salas['nome'])."</option>";
+                          }
+                      ?>
+                    </select>
                     <label for="data_inicio">Data de início:</label>
                     <input type="date" name="data_inicio" class="form-control" id="data_inicio" required>
 
@@ -39,7 +51,7 @@
 
                     <label for="comentario">Comentário:</label>
                     <textarea name="comentario" id="comentario" cols="30" class="form-control" rows="11"></textarea>
-                    
+
             <input type="submit" name="inserir" class="btn btn-primary" value="Cadastrar">
             <a href="reservas.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
         </form>

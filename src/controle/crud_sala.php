@@ -10,8 +10,10 @@
             $result_insert = mysqli_query($poti_con, $insert_query) or die(mysqli_error($poti_con));
             if($result_insert == 0){
                 echo "Não inseriu";
+            }else{
+              header("Location:  ../views/acesso_administrativo/salas.php");
             }
         }
-        
+
     }
 ?>

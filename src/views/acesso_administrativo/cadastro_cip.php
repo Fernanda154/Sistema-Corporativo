@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="../../css/cadastro_publicacao.css">
-    
+
 </head>
 
-<body> 
+<body>
     <div class="container">
-        <form method="POST" action="../../controle/crud_publicacao.php">
+        <form method="POST" action="../../controle/crud_cip.php">
             <h4>ESCREVER CIP</h4>
             <label for="assunto">Assunto: </label>
             <input type="text" class="form-control" name="assunto" id="assunto" required>
@@ -45,16 +45,6 @@
                 ?>
             </select>
             <br>
-            <label for="autor">Selecione o autor do arquivos:</label>
-            <select name="autor" class="form-control" id="autor" required>
-                <option value="">Selecione o autor:</option>
-                <?php
-                    while ($array_funcionarios = mysqli_fetch_assoc($result_select_funcionarios)) {
-                        echo "<option value='".$array_funcionarios['cod_funcionario']."'>".utf8_encode($array_funcionarios['nome'])."</option>";
-                    }
-                ?>
-            </select>
-            <br>
             <label for="status">Status:</label>
             <select name="status" id="status" class="form-control" required>
                 <option value="">Selecione:</option>
@@ -62,12 +52,12 @@
                 <option value="2">Desativo</option>
             </select>
             <br>
-            
+
             <textarea id="editor" class="ckeditor" name="texto" required>
-               
+
             </textarea>
             <script>
-                
+
                     var editor = CKEDITOR.replace( 'editor' );
                     CKFinder.setupCKEditor( editor,{
                         filebrowserBrowseUrl: 'ckeditor/ckfinder/ckfinder.html',
@@ -76,8 +66,8 @@
                         filebrowserWindowHeight: '700'
                     } );
             </script>
-            <input type="submit" name="inserir" class="btn btn-primary" value="Enviar">
-            <a href="comunicados.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
+            <input type="submit" name="submit" class="btn btn-primary" value="Enviar">
+            <a href="../cips.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
         </form>
     </div>
     <script>
@@ -85,6 +75,6 @@
             tags: true,
             tokenSeparators: [',']
         })
-    </script> 
+    </script>
 </body>
 </html>

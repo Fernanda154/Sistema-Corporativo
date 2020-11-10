@@ -32,4 +32,16 @@ h4{
 label{
     margin-bottom: 0.2rem;
 }
-  
+@media only screen and (min-width: 1920px){
+  .container{
+      margin-left: 22%;
+      text-align: center;
+  }
+  form{
+      margin-top: 10%;
+      width: 700px;
+      padding: 10px;
+      display: inline-block;
+      text-align: left;
+  }
+}

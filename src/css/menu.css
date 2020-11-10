@@ -144,5 +144,21 @@ li p{
             font-size: 14px !important;
             color: #D4C6C6;
             width: auto;
-            
+
         }
+				@media only screen and (min-width: 1920px){
+					.gridBarraMenu{
+						grid-row-start: 1;
+						grid-row-end: 4;
+					  grid-column-start: 1;
+						grid-column-end: 1;
+						background: #343a40;
+						padding-top: 5vh;
+						border-radius: 0px !important;
+						position: fixed;
+						margin-top: 4.9vh;
+						height: 100%;
+						width: 180px;
+
+					}
+				}
