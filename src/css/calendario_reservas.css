@@ -1,6 +1,7 @@
 #calendario{
     margin-left: 7%;
     height: 70%;
+    max-width: 720px;
 }
 .fc-toolbar h2{
     font-size: 1.4em;
@@ -21,4 +22,18 @@ label{
 }
 .form-control{
     display: inline-block;
+}
+.icons_opcoes{
+    height: 20px;
+    width: auto;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.container {
+    width: 55%;
+    margin-left: 25%;
+    text-align: center;
+}
+.fc-unthemed .fc-content, .fc-unthemed .fc-divider, .fc-unthemed .fc-list-heading td, .fc-unthemed .fc-list-view, .fc-unthemed .fc-popover, .fc-unthemed .fc-row, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
+    border-color: #cecece;
 }

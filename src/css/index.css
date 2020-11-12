@@ -32,6 +32,7 @@ a{
     display: block;
     margin-top: 10px;
     font-size: 13px;
+
 }
 h3{
     color: #DADFE2;
@@ -69,4 +70,8 @@ h3{
     display: flex;
     margin-left: 15%;
     margin-top: 14%;
+}
+p{
+  color: darkgray;
+  font-size: 13px;
 }

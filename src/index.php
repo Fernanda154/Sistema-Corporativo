@@ -18,7 +18,7 @@
         <input type="text" name="txt_login" id="login" placeholder="Login">
         <br>
         <input type="password" name="pass_senha" id="senha" placeholder="Senha">
-        <a href="">Esqueceu a senha?</a>
+        <a href="views/recuperar_senha.php">Esqueceu a senha?</a>
         <input type="submit" class="entrar" value="Entrar">
       </div>
     </form>
@@ -26,4 +26,4 @@
   </div>
 </body>
 
-</html> 
+</html>
