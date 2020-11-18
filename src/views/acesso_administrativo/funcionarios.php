@@ -51,7 +51,7 @@
                                             <input type='hidden' id='codFuncionario' name='cod_Funcionario' value=".$array_funcionarios['cod_funcionario'].">
                                             <img class='icons_opcoes detalhes' data-funcionario=".$array_funcionarios['cod_funcionario']." src='../../img/icons8-mais-zoom-52.png' alt='Ilustração para opção de ver mais detalhes'  data-toggle='modal' data-target='#exampleModalCenter'>
                                         </form>
-                                        <img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
+                                       <a href='cadastro_funcionario.php?cod_funcionario=".$array_funcionarios['cod_funcionario']."'><img class='icons_opcoes' src='../../img/icons8-editar-52.png' alt='Ilustração para opção de editar'> </a> <img class='icons_opcoes' src='../../img/icons8-excluir-52.png' alt='Ilustração para opção de apagar'></td>
                                 </tr>
                                 ";
                         }
@@ -96,6 +96,7 @@
     </div>
   </div>
 </div>
+
     <!--IMPORTAÇÕES JAVASCRIPT PARA O MODAL(BOODSTRAP)-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

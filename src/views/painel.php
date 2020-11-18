@@ -117,7 +117,7 @@ if (!isset($_SESSION)) {
                     while ($reserva = mysqli_fetch_assoc($result_reservas)){
                       echo "
                       <img src='../img/ico_seta_dir.png' alt='Seta ilustrativa' width='16' height='16' border='0' align='absmiddle' />
-                      <a href='../principal/reservas_detalhes.php?cod_reserva='". $reserva['cod_reserva'] ."'>
+                      <a href='../principal/reservas_detalhes.php?cod_reserva='". $reserva['cod_reserva'] ."' data-funcionario=".$reserva['cod_reserva']." data-toggle='modal' data-target='#exampleModalCenter'>
                         ".$reserva['data_inicio']." - ".$reserva['assunto'] ."
                       </a>
                       <br>

@@ -13,11 +13,17 @@ if ($env == 'PRODUCTION') {
 else {
 	$host="127.0.0.1";
 	$socket="";
-	$port=3306;
+	$port=3300;
 	$user="root";
-	$password="";
+	$password="cabeloloco154";
 	$dbname="intranet_corporativa";
 }
+
+
+$con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+	or die ('Could not connect to the database server' . mysqli_connect_error());
+
+//$con->close();
 
 
 $poti_con = new mysqli($host, $user, $password, $dbname, $port, $socket)

@@ -66,4 +66,7 @@
         }
         header("Location: ../views/acesso_administrativo/funcionarios.php");
     }
+    if(isset($_POST['editar'])){
+        
+    }
 ?>

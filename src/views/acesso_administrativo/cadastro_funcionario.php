@@ -5,6 +5,11 @@
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
     include('../../controle/preenchimentos/select_setor.php');
+    if($_GET['cod_funcionario'] != null){
+        $query_funcionario = "SELECT * FROM funcionario WHERE cod_funcionario = ".$_GET['cod_funcionario'].";";
+        $result_funcionario = mysqli_query($poti_con, $query_funcionario) or die (mysqli_error($poti_con));
+        $funcionario = mysqli_fetch_assoc($result_funcionario);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,10 +37,10 @@
             <div class="row">
                 <div class="col-sm-8">
                     <label for="nome">Nome: </label>
-                    <input type="text" name="nome_funcionario" id="nome_funcionario" class="form-control" placeholder="Nome completo" required>
+                    <input type="text" name="nome_funcionario" id="nome_funcionario" class="form-control" value="<?php echo $funcionario['nome']; ?>" required>
                     
                     <label for="telefone">Telefone:</label>
-                    <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(DDD)X XXXX-XXXX" required>
+                    <input type="text" name="telefone" class="form-control" id="telefone" value="<?php echo $funcionario['telefone']; ?>" required>
                 </div>
                 <div class="col-sm-4">
                     <div class="coluna_foto">
@@ -81,30 +86,30 @@
             <div class="row">
                 <div class="col">
                     <label for="data_nascimento">Data de nascimento:</label>
-                    <input type="date" id="data_nascimento" class="form-control" name="data_nascimento" required>
+                    <input type="date" id="data_nascimento" class="form-control" name="data_nascimento" value="<?php echo $funcionario['data_nascimento']; ?>" required>
                 </div>
                 <div class="col">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="nome.sobrenome@potigas.com.br" required>
+                    <input type="email" name="email" id="email" class="form-control" value="<?php echo $funcionario['email']; ?>" required>
                 
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
                         <label for="ramal">Ramal:</label>
-                        <input type="ramal" name="ramal" id="ramal" class="form-control" placeholder="XXXX" required>
+                        <input type="ramal" name="ramal" id="ramal" class="form-control" value="<?php echo $funcionario['ramal']; ?>" required>
                     </div>
                 <div class="col">
                     <label for="login">Login:</label>
-                    <input type="text" name="login" class="form-control" id="login" required>
+                    <input type="text" name="login" class="form-control" id="login" value="<?php echo $funcionario['login']; ?>" required>
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
                         <label for="senha">Senha:</label>
-                        <input type="password" name="senha" class="form-control" id="senha" required>
+                        <input type="password" name="senha" class="form-control" id="senha" value="<?php echo $funcionario['senha']; ?>" required>
                     </div>
                 <div class="col">
                     <label for="conf_senha">Confirme a senha:</label>
-                    <input type="password" name="conf_senha" class="form-control" id="conf_senha" required>
+                    <input type="password" name="conf_senha" class="form-control" id="conf_senha" value="<?php echo $funcionario['senha']; ?>" required>
                 </div>
                 <div class="w-100"></div>
                     <div class="col"> 
@@ -113,7 +118,12 @@
                             <option value="">Selecione o cargo</option>
                             <?php
                             while ($array_cargos = mysqli_fetch_assoc($result_cargos)) {
-                                echo "<option value='".$array_cargos['cod_cargo']."'>".utf8_encode($array_cargos['nomenclatura'])."</option>";
+                                if($funcionario['cargo'] == $array_cargos['cod_cargo']){
+                                    echo "<option value='".$array_cargos['cod_cargo']."' selected>".utf8_encode($array_cargos['nomenclatura'])."</option>";
+                                }else{
+                                    echo "<option value='".$array_cargos['cod_cargo']."'>".utf8_encode($array_cargos['nomenclatura'])."</option>";
+                                }
+                                
                             }
                             ?>
                         </select>
@@ -124,7 +134,12 @@
                         <option value="">Selecione o setor</option>
                         <?php
                         while ($array_setores = mysqli_fetch_assoc($result_select_setor)) {
-                            echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
+                            if($funcionario['setor'] == $array_setores['cod_setor']){
+                                echo "<option value='".$array_setores['cod_setor']."' selected>".utf8_encode($array_setores['nome'])."</option>";
+                            }else{
+                                echo "<option value='".$array_setores['cod_setor']."'>".utf8_encode($array_setores['nome'])."</option>";
+                            }
+                            
                         }
                         ?>
                     </select>
@@ -154,7 +169,17 @@
                     </fieldset>
                 </div>
             </div>
-            <input type="submit" name="inserir" class="btn btn-primary" onSubmit="validaUsuario()" value="Cadastrar">
+            <?php 
+                if($_GET['cod_funcionario'] != null){
+            ?>
+                    <input type="submit" name="atualizar" class="btn btn-warning" onSubmit="validaUsuario()" value="Atualizar">
+            <?php
+                }else{
+            ?>
+                    <input type="submit" name="inserir" class="btn btn-primary" onSubmit="validaUsuario()" value="Cadastrar">
+            <?php
+                }
+            ?>
             <a href="funcionarios.php"> <button type="button" class="btn btn-danger">Cancelar</button> </a>
             
             </form>

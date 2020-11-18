@@ -19,7 +19,7 @@
 }
 .coluna_1{
 	display: inline-block;
-    width: 270px;
+  width: 270px;
 	padding: 10px;
 	text-align: left;
 }
@@ -59,10 +59,14 @@ legend{
 	text-align: left;
 
 }
-
 .btn-primary{
 	float: right;
 	margin: 1%;
+}
+.btn-warning{
+	float: right;
+  margin: 1%;
+  color: white;
 }
 button{
 	margin: 1%;
