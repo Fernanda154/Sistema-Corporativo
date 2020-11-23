@@ -67,6 +67,31 @@
         header("Location: ../views/acesso_administrativo/funcionarios.php");
     }
     if(isset($_POST['editar'])){
-        
+        $nome = $_POST['nome_funcionario'];
+        $telefone = $_POST['telefone'];
+        $email = $_POST['email'];
+        $ramal = $_POST['ramal'];
+        $senha = $_POST['senha'];
+        $conf_senha = $_POST['conf_senha'];
+        $login = $_POST['login'];
+        $cargo = $_POST['cargo'];
+        $setor = $_POST['setor'];
+        $data_nascimento = $_POST['data_nascimento'];
+        $foto = $_FILES['foto'];
+        $permissoes = "";
+        if(isset($_POST['permissao_banner'])){
+            $permissoes = $permissoes."1";
+        }
+        if(isset($_POST['permissao_documento'])){
+            $permissoes = $permissoes."2";
+        }
+        if(isset($_POST['permissao_publicacao'])){
+            $permissoes = $permissoes."3";
+        }
+        if(isset($_POST['permissao_reserva'])){
+            $permissoes = $permissoes."4";
+        }
+
+        $query_update = "UPDATE funcionario SET nome = '$nome', telefone = '$telefone', email = '$email', ramal='$ramal', senha='$senha', login='$login', cargo='$cargo', setor='$setor', data_nascimento='$data_nascimento' permissao = '$permissoes' WHERE cod_funcionario = $cod_funcionario ";
     }
 ?>

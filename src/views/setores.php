@@ -14,6 +14,13 @@
 </head>
 <body>
     <?php
+        if (!isset($_SESSION)) {
+            session_start();
+          }
+          if($_SESSION['cod_funcionario'] == null){
+            header("Location: ../index.php");
+          }
+        //-----------------------------------------
         require_once('../controle/conexao.php');
         include('../includes/nav.php');
         include('menu.php');

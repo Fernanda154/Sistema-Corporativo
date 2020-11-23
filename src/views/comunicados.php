@@ -1,6 +1,11 @@
 <?php
     require_once('../controle/conexao.php');
-
+    if (!isset($_SESSION)) {
+      session_start();
+    }
+    if($_SESSION['cod_funcionario'] == null){
+      header("Location: ../index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">

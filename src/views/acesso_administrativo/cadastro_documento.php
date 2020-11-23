@@ -1,4 +1,14 @@
 <?php
+
+    //AUTORIZAÇÃO DE ACESSO A PÁGINA
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if($_SESSION['cod_funcionario'] == null){
+        header("Location: ../../index.php");
+    }
+    //-----------------------------------------
+
     include_once("../../controle/conexao.php");
     include_once("../../controle/preenchimentos/select_funcionarios.php");
     include('../../controle/preenchimentos/select_setor.php');

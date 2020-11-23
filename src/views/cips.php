@@ -3,6 +3,10 @@
 		session_start();
     }
     $cargo = $_SESSION['cargo'];
+      if($_SESSION['cod_funcionario'] == null){
+        header("Location: ../index.php");
+      }
+    //-----------------------------------------
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

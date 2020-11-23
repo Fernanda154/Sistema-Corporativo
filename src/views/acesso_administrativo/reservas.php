@@ -1,4 +1,14 @@
 <?php
+
+    //AUTORIZAÇÃO DE ACESSO A PÁGINA
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if($_SESSION['cod_funcionario'] == null){
+        header("Location: ../../index.php");
+    }
+    //-----------------------------------------
+
     include("../../controle/conexao.php");
     include('../../controle/preenchimentos/reservas.php');
 

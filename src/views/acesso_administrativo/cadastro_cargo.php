@@ -1,7 +1,16 @@
 <?php
-        include_once("../../controle/conexao.php");
-        include('../../includes/nav.php');
-        include('menu.php');
+    //AUTORIZAÇÃO DE ACESSO A PÁGINA
+    if (!isset($_SESSION)) {
+        session_start();
+      }
+      if($_SESSION['cod_funcionario'] == null){
+        header("Location: ../../index.php");
+      }
+    //-----------------------------------------
+
+    include_once("../../controle/conexao.php");
+    include('../../includes/nav.php');
+    include('menu.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

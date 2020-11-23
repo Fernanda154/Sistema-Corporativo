@@ -1,4 +1,12 @@
 <?php
+    //AUTORIZAÇÃO PARA VISUALIZAÇÃO DA PÁGINA
+    if (!isset($_SESSION)) {
+        session_start();
+      }
+      if($_SESSION['cod_funcionario'] == null){
+        header("Location: ../index.php");
+      }
+    //-----------------------------------------
     require_once('../controle/conexao.php');
     include('../controle/preenchimentos/salas.php');
     $query_reservas = "SELECT reserva.assunto,reserva.cod_reserva, reserva.data_inicio, reserva.data_fim, reserva.status, reserva.solicitante, funcionario.nome as solicitante FROM reserva INNER JOIN funcionario ON reserva.solicitante = funcionario.cod_funcionario;";
@@ -110,5 +118,6 @@
         </div>
     </div>
    <script src="../js/verificaReservas.js" charset="utf-8"></script>
+   
 </body>
 </html>

@@ -1,10 +1,17 @@
 <?php
+    if (!isset($_SESSION)) {
+      session_start();
+    }
+    if($_SESSION['cod_funcionario'] == null){
+      header("Location: ../../index.php");
+    }
     include_once("../../controle/conexao.php");
     include('../../includes/nav.php');
     include('menu.php');
     include('../../controle/preenchimentos/setores.php');
     include('../../controle/preenchimentos/cargos.php');
     include('../../controle/preenchimentos/select_setor.php');
+
     if($_GET['cod_funcionario'] != null){
         $query_funcionario = "SELECT * FROM funcionario WHERE cod_funcionario = ".$_GET['cod_funcionario'].";";
         $result_funcionario = mysqli_query($poti_con, $query_funcionario) or die (mysqli_error($poti_con));

@@ -2,7 +2,10 @@
 	if (!isset($_SESSION)) {
 		session_start();
 	}
-	
+    if($_SESSION['cod_funcionario'] == null){
+    	header("Location: ../../index.php");
+    }
+    //-----------------------------------------
 	$cod_funcionario = $_SESSION['cod_funcionario'];
 	$busca_funcionario = "SELECT * FROM funcionario WHERE cod_funcionario = $cod_funcionario;";
 	$result_funcionario = mysqli_query($poti_con, $busca_funcionario) or die(mysqli_error($poti_con));
