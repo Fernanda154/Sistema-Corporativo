@@ -31,6 +31,9 @@
 			<a href="../cips.php"><img src="../../img/cip.png" class="iconsMenu"><p>CIP</p></a>
 		</li>
 		<li>
+			<a href="../reservas.php"><img src="../../img/calendario.png" class="iconsMenu"><p>RESERVAS</p></a>
+		</li>
+		<li>
 			<a href="#"><img src="../../img/empresa.png" class="iconsMenu" id="dropEmpresa"><p>EMPRESA</p></a>
 			<ul class="dropEmpresa">
 				<li>

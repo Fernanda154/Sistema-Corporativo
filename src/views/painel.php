@@ -131,14 +131,8 @@ if($_SESSION['cod_funcionario'] == null){
                  <hr>
                     <?php
 						if ($total_de_aniversariantes > 0){
-                          
-                    ?>
-                    			<a href="#"> <?php echo $aniversariante['nome']; ?> </a>
-                                <br>
-                    <?php
-                            
                             while ($aniversariante = mysqli_fetch_assoc($result_aniversariante)){
-                              echo "<a href='#'>". $aniversariante['nome']."</a>
+                              echo "<a href='#'><img src='../img/aniversario.png' width='16' height='16' style='margin-right: 2px' border='0' align='absmiddle' />". $aniversariante['nome']."</a>
                               <br>";
                             }
                         }
