@@ -28,6 +28,7 @@
                     <p><b>Tamanho:</b> ".$row_user['tamanho']."</p>
                     <p><b>Autor:</b> ".$row_user['autor']."</p>
                     <p><b>Responsável:</b> ". $row_user['responsavel'] ."</p>
+                    <embed src=\"../../includes/anexos/documentos/documentos/". $row_user['nome'] ."\">
                     
                 </div>
                 ";

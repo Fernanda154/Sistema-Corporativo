@@ -1,0 +1,93 @@
+*{
+	margin:0px;
+	font-family: 'Open Sans', sans-serif;
+}
+.container{
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-template-rows: 2vh 27vh;
+    background-color: #dadfe2;
+    grid-gap: 5em;
+    margin-left: 13%;
+}
+.box_table{
+	grid-row-start: 2;
+	grid-row-end: 2;
+  	grid-column-start: 1 ;
+    grid-column-end: 1;
+    display: inline-block;
+}
+.icons_opcoes{
+    height: 20px;
+    width: auto;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.table td, .table th{
+    padding: 0.60rem;
+    font-size: 0.9em;
+}
+
+.iconAddUser{
+    height: 25px;
+    width: auto;
+    display: inline-block;
+}
+.add_user{
+    background-color: #FFF;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 4px;
+    float: right;
+    cursor: pointer;
+}
+.add_user p{
+    display: inline-block;
+    margin-bottom: 0px;
+}
+.busca{
+    background: url(../img/lupa.jpg) no-repeat center right;
+    padding: 5px;
+    margin-left: 5px;
+    background-size: 25px;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    width: 200px;
+    border-bottom: solid 1px #ddd;
+    outline: none;
+    background-color: #fff;
+}
+.busca:focus{
+    width: 200px;
+    border-bottom: solid 1px #ddd;
+    outline: none;
+}
+td form{
+    display: inline-block;
+}
+.foto_modal{
+    display: flex;
+}
+.dados_modal{
+    display: inline-block;
+}
+.modal-body{
+    display: flex;
+    padding: 1rem;
+}
+.foto_funcionario{
+    margin-top: 75px;
+    height: 160px;
+    margin-right: 50px;
+    margin-left: 46px;
+    border-radius: 81px;
+}
+.modal-dialog {
+    max-width: 650px;
+    margin: 1.75rem auto;
+}
+embed{
+    width: 98%;
+    
+}

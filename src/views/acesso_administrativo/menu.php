@@ -73,6 +73,8 @@
 			<a href="../comunicacao.php"><img src="../../img/comunicacao.png" class="iconsMenu"><p>COMUNICAÇÃO</p></a>
 		</li>
 <!-- VISÍSIVEL SOMENTE POR ADMINS -->
+
+
 		<?php
 			if ($funcionario['permissao'] == '99'){
 		?>

@@ -10,7 +10,8 @@ if(isset($_POST['salvar'])){
     $query_atualiza = "UPDATE funcionario SET senha = '$novaSenha' WHERE cod_funcionario = $cod_funcionario;";
     $result = mysqli_query($poti_con, $query_atualiza) or die(mysqli_error($poti_con));
   }else{
-    echo "Verifique se as senhas ";
+    $verifica_senha = 'Não confere';
+    echo "<p style='color: red; background: white;'>Senhas não correspondem.</p>";
   }
 
 }
@@ -39,7 +40,7 @@ if(isset($_POST['salvar'])){
           
           <form action='../controle/login.php' method='POST' class='card-login' onsubmit='return valida_login()'>
             <div class='conteudo'>
-            <p>Senha atualizada com sucesso!</p>
+            <p style='color: green; background-color: white;'>Senha atualizada com sucesso!</p>
             <h3>Intranet Corporativa</h3>
             <input type='text' name='txt_login' id='login' placeholder='Login'>
             <br>
@@ -66,12 +67,29 @@ if(isset($_POST['salvar'])){
       ";
     }
     else if($row_usuario == 0 && !isset($result)){
-      echo "
-      <div class='conteudo'>
-        <h3>Algo deu errado</h3>
-        <p>Parece que o email informado não está cadastrado.</p>
-        <a href='../index.php'>Cancelar</a>
-      </div>";
+      if(isset($verifica_senha) == true){
+        echo "
+        <form action='../controle/recuperacao_de_senha.php' method='POST' class='card-login' onsubmit='return valida_login()'>
+          <div class='conteudo'>
+            <h3>Atualização de senha</h3>
+            <input type='password' name='senha_nova' placeholder='Nova senha'>
+            <input type='password' name='conf_senha' placeholder='Confirme sua senha'>
+            <input type='submit' name='salvar' class='entrar' value='Salvar'>
+            <input type='hidden' name='id_funcionario' value='". $cod_usuario['cod_funcionario'] ."'>
+            <a href='../index.php'>Cancelar</a>
+          </div>
+        </form>";
+      }else{
+        echo "
+        <form action='' method='POST' class='card-login'>
+          <div class='conteudo'>
+            <h3>Algo deu errado</h3>
+            <p>Parece que o email informado não está cadastrado.</p>
+            <a href='../index.php'>Cancelar</a>
+          </div>
+        </form>";
+      }
+      
     }
     
 ?>

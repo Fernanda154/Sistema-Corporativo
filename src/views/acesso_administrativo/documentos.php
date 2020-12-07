@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="../../css/nav.css">
     <link rel="stylesheet" href="../../css/menu.css">
-    <link rel="stylesheet" href="../../css/funcionarios.css">
+    <link rel="stylesheet" href="../../css/documentos.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Potigás</title>
 </head>

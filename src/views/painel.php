@@ -100,7 +100,7 @@ if($_SESSION['cod_funcionario'] == null){
             <?php
             if ($total_de_publicacoes > 0){
               while ($publicacao= mysqli_fetch_assoc($result_publicacoes)){
-                echo "<a href='../principal/comunicados.php'><img src='../img/ico_seta_dir.png' width='16' height='16' border='0' align='absmiddle' />
+                echo "<a href='comunicados.php'><img src='../img/ico_seta_dir.png' width='16' height='16' border='0' align='absmiddle' />
                			   ". date('d/m/Y', strtotime($publicacao['data_publicacao']))." - ". utf8_encode($publicacao['titulo'])."
                   </a>
                   <br>";
@@ -144,7 +144,7 @@ if($_SESSION['cod_funcionario'] == null){
         	<div class="gridArquivos">
         		<h4>ARQUIVOS RECENTES</h4>
                 <hr>
-                <?php
+                <?php 
 				if($total_de_arquivos > 0){
 					while ($arquivo = mysqli_fetch_assoc($result_documento)){
             echo "<a href='../arquivos/". $arquivo['caminho']."'><img src='../img/download.png' width='16' height='16' border='0' align='absmiddle' />
