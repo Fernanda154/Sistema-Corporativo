@@ -17,9 +17,13 @@ $total_de_comunicados = mysqli_num_rows($result_comunicado);
 
 
     $lista_inicio = $limite_dados * $pagina_atual;
-    //Query de busca funcionarios para tabela1
-    $query_table = "SELECT publicacao.titulo, publicacao.texto, publicacao.cod_publicacao, publicacao.data_publicacao, publicacao.autor, funcionario.nome as autor FROM publicacao INNER JOIN Funcionario ON publicacao.autor = funcionario.cod_funcionario LIMIT $lista_inicio, $limite_dados;";
+    //Query de busca comunicados para tabela
+    $query_table = "SELECT publicacao.titulo, publicacao.texto, publicacao.cod_publicacao, publicacao.data_publicacao, publicacao.autor, funcionario.nome as autor FROM publicacao INNER JOIN Funcionario ON publicacao.autor = funcionario.cod_funcionario ORDER BY publicacao.data_publicacao DESC LIMIT $lista_inicio, $limite_dados;";
     $result_table = mysqli_query($poti_con, $query_table) or die(mysqli_error($poti_con));
     // numero de páginas que a table vai ter 
     $numero_de_paginas = ceil($total_de_comunicados/$limite_dados);
+
+    //Query de busca comunicados para o feed.
+    $query_feed = "SELECT publicacao.titulo, publicacao.texto, publicacao.cod_publicacao, publicacao.data_publicacao, publicacao.autor, funcionario.nome as autor FROM publicacao INNER JOIN Funcionario ON publicacao.autor = funcionario.cod_funcionario ORDER BY publicacao.data_publicacao DESC LIMIT 10;";
+    $result_feed = mysqli_query($poti_con, $query_feed) or die(mysqli_error($poti_con));
 ?>

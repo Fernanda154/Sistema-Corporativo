@@ -59,7 +59,7 @@
             </select>
             <br>
             <label for="comentario" >Comentário:</label>
-            <textarea id="comentario" name="comentario" class="form-control" required></textarea>
+            <textarea id="comentario" name="comentario" class="form-control" ></textarea>
             <br>
             <!--
             <label for="texto">Texto:</label>
