@@ -26,7 +26,7 @@
           include('menu.php');
           include('../controle/preenchimentos/comunicados.php');
       ?>
-      <div class="container">
+      <div class="geralzao">
         <?php
           while ($array_feed = mysqli_fetch_array($result_feed)) {
             echo "
