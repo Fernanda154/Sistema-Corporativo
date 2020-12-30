@@ -79,7 +79,15 @@
 			<?php
 			}
 			?>
-					<li onclick="alert('Deseja mesmo sair?')"><a href="../controle/logout.php"><img src="../img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
+					<li onClick="logout()"><a href=""><img src="../img/sair.png" class="iconsMenu"><p>SAIR</p></a></li>
 
 				</ul>
 	</div>
+<script>
+function logout() {
+	var conf = confirm("Deseja mesmo sair?");
+	if(conf){
+		window.location.href = "../controle/logout.php";
+	}
+}
+</script>

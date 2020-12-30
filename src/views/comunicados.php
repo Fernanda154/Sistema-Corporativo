@@ -12,6 +12,10 @@
   <head>
     <meta charset="utf-8">
     <title>Potigás</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="stylesheet" href="../css/feed.css">
@@ -70,12 +74,12 @@
       <p class='card-text'><small class='text-muted'>.$array_feed['data_publicacao'].</small></p>
     </div>
   </div>
-  <div class='card'>
-    <div class='card-body'>
-      <h5 class='card-title'>Card title</h5>
-      <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class='card-text'><small class='text-muted'>Last updated 3 mins ago</small></p>
-    </div>
-    <img class='card-img-bottom' src='...' alt='Card image cap'>
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../anexos/banners/" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
 </div>
