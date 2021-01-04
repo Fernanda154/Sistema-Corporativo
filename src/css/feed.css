@@ -12,7 +12,7 @@ h1{
     color: #8fbc18;
 }
 .post{
-    margin-top: 6%;
+    margin-top: 1%;
     width: 600px;
     padding: 10px;
     display: inline-block;
@@ -21,7 +21,6 @@ h1{
     border-radius: 5px;
 }
 .geralzao{
-    margin-left: 11%;
     text-align: center;
 }
 a{
